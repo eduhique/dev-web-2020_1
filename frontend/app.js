@@ -29,6 +29,7 @@ var resume = async _ => {
             }
         });
     });
+    console.log(exit);
     return exit
 }
 

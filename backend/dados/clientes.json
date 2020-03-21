@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "nome": "Loura",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 2,
+    "nome": "Vicente",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 3,
+    "nome": "Zezinho",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 4,
+    "nome": "Boião",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 5,
+    "nome": "Ronaldinho",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 6,
+    "nome": "Manoel Mercado Central",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 7,
+    "nome": "Janaína",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 8,
+    "nome": "Braga",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 9,
+    "nome": "Toninho",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 10,
+    "nome": "Edmilson",
+    "Tipo": "Grossista"
+  },
+  {
+    "id": 11,
+    "nome": "Inaldo",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 11,
+    "nome": "Gordo",
+    "Tipo": "Loja"
+  },
+  {
+    "id": 12,
+    "nome": "Petronio",
+    "Tipo": "Grossista"
+  }
+]
