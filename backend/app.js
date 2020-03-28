@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var clienteRouter = require('./routes/cliente');
+var clienteRouter = require('./routes/clienteController');
 var pedidoRouter = require('./routes/pedido');
 var romaneioRouter = require('./routes/romaneio');
 var produtoRouter = require('./routes/produto');
