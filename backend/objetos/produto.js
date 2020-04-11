@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports.Produto = class {
+module.exports = class Produto {
   constructor(nome, unidade, id) {
     if ((nome === null) || (nome === undefined) || (nome.trim() === '')) {
       throw "Insira um nome Válido, que não seja Vazio."
