@@ -8,3 +8,11 @@ module.exports.findById = (list, id) => {
     }
   })
 }
+
+module.exports.getNextId = list => {
+  let nextId = 1;
+  if (list.length !== 0) {
+    nextId = list[list.length - 1].id + 1;
+  }
+  return nextId;
+}

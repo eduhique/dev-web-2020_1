@@ -1,1 +1,67 @@
-[{"id":1,"nome":"Loura","tipo":"Loja"},{"id":2,"nome":"Vicente","tipo":"Loja"},{"id":3,"nome":"Zezinho","tipo":"Loja"},{"id":4,"nome":"Boião","tipo":"Loja"},{"id":5,"nome":"Ronaldinho","tipo":"Loja"},{"id":6,"nome":"Manoel Mercado Central","tipo":"Loja"},{"id":7,"nome":"Janaína","tipo":"Loja"},{"id":8,"nome":"Braga","tipo":"Loja"},{"id":9,"nome":"Toninho","tipo":"Loja"},{"id":10,"nome":"Edmilson","tipo":"Grossista"},{"id":11,"nome":"Inaldo","tipo":"Loja"},{"id":12,"nome":"Gordo","tipo":"Loja"},{"id":13,"nome":"Petronio","tipo":"Grossista"}]
+[
+  {
+    "id": 1,
+    "nome": "Loura",
+    "tipo": "Loja"
+  },
+  {
+    "id": 2,
+    "nome": "Vicente",
+    "tipo": "Loja"
+  },
+  {
+    "id": 3,
+    "nome": "Zezinho",
+    "tipo": "Loja"
+  },
+  {
+    "id": 4,
+    "nome": "Boião",
+    "tipo": "Loja"
+  },
+  {
+    "id": 5,
+    "nome": "Ronaldinho",
+    "tipo": "Loja"
+  },
+  {
+    "id": 6,
+    "nome": "Manoel Mercado Central",
+    "tipo": "Loja"
+  },
+  {
+    "id": 7,
+    "nome": "Janaína",
+    "tipo": "Loja"
+  },
+  {
+    "id": 8,
+    "nome": "Braga",
+    "tipo": "Loja"
+  },
+  {
+    "id": 9,
+    "nome": "Toninho",
+    "tipo": "Loja"
+  },
+  {
+    "id": 10,
+    "nome": "Edmilson",
+    "tipo": "Grossista"
+  },
+  {
+    "id": 11,
+    "nome": "Inaldo",
+    "tipo": "Loja"
+  },
+  {
+    "id": 12,
+    "nome": "Gordo",
+    "tipo": "Loja"
+  },
+  {
+    "id": 13,
+    "nome": "Petronio",
+    "tipo": "Grossista"
+  }
+]

@@ -12,7 +12,7 @@ router.route('/')
   })
   .post(function (req, res) {
     try {
-      let newCliente = new cliente(req.body.nome, req.body.tipo, (clientes.length + 1));
+      let newCliente = new cliente(req.body.nome, req.body.tipo, ultil.getNextId(clientes));
       clientes.push(newCliente);
       res.status(201).json(newCliente);
     } catch (err) {
@@ -41,6 +41,15 @@ router.get('/:clienteId', function (req, res) {
     res.status(200).json(result[0]);
   } else {
     ultil.erro(res, 404, `Id(${clienteId} passado não está presente na base.`)
+  }
+})
+
+router.get('/search/', function (req, res) {
+  let result = cliente.findClienteByNome(req.query.s);
+  if (result.length !== 0) {
+    res.status(200).json(result[0]);
+  } else {
+    ultil.erro(res, 404, `query não encontrada.`)
   }
 })
 

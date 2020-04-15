@@ -28,3 +28,13 @@ module.exports.writeromaneios = async romaneios => {
     romaneios = data;
   });
 }
+
+module.exports.findRomaneioByTitle = query => {
+  return this.romaneios.filter(obj => {
+    if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
+      return obj.title.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    } else {
+      return false;
+    }
+  })
+}

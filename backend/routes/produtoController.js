@@ -12,7 +12,7 @@ router.route('/')
   })
   .post(function (req, res) {
     try {
-      let newProduto = new Produto(req.body.nome, req.body.unidade, (produtos.length + 1));
+      let newProduto = new Produto(req.body.nome, req.body.unidade, ultil.getNextId(produtos));
       produtos.push(newProduto);
       res.status(201).json(newProduto);
     } catch (err) {
@@ -41,6 +41,15 @@ router.get('/:produtoId', function (req, res) {
     res.status(200).json(result[0]);
   } else {
     ultil.erro(res, 404, `Id(${req.params.produtoId}) passado não está presente na base.`)
+  }
+})
+
+router.get('/search/', function (req, res) {
+  let result = Produto.findProdutosByNome(req.query.s);
+  if (result.length !== 0) {
+    res.status(200).json(result[0]);
+  } else {
+    ultil.erro(res, 404, `query não encontrada.`)
   }
 })
 
