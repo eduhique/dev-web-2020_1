@@ -1,0 +1,14 @@
+#resume-list {
+  display: flex;
+  justify-content: center;
+}
+
+th {
+  font-size: 30px;
+  text-align: left;
+}
+
+.colum-item {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
