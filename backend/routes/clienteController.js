@@ -35,21 +35,21 @@ router.route('/')
     cliente.writeClientes(clientes)
   });
 
+router.get('/search/', function (req, res) {
+  let result = cliente.findClienteByNome(req.query.s, clientes);
+  if (result.length !== 0) {
+    res.status(200).json(result);
+  } else {
+    ultil.erro(res, 404, `query não encontrada.`)
+  }
+})
+
 router.get('/:clienteId', function (req, res) {
   let result = ultil.findById(clientes, req.params.clienteId);
   if (result.length !== 0) {
     res.status(200).json(result[0]);
   } else {
     ultil.erro(res, 404, `Id(${clienteId} passado não está presente na base.`)
-  }
-})
-
-router.get('/search/', function (req, res) {
-  let result = cliente.findClienteByNome(req.query.s);
-  if (result.length !== 0) {
-    res.status(200).json(result[0]);
-  } else {
-    ultil.erro(res, 404, `query não encontrada.`)
   }
 })
 

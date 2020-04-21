@@ -21,12 +21,11 @@ module.exports.writeClientes = async clientes => {
     if (err) {
       throw err;
     }
-    clientes = data;
   });
 }
 
-module.exports.findClienteByNome = query => {
-  return this.clientes.filter(obj => {
+module.exports.findClienteByNome = (query, clientes) => {
+  return clientes.filter(obj => {
     if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
       return obj.nome.toLowerCase().indexOf(query.toLowerCase()) > -1;
     } else {

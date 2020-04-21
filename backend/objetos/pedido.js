@@ -40,6 +40,41 @@ module.exports.writepedidos = async pedidos => {
     if (err) {
       throw err;
     }
-    pedidos = data;
   });
+}
+
+module.exports.resume = pedido => {
+  let newItems = [];
+
+  pedido.items.forEach(element => {
+    let produto = ultil.findById(produtos, element.produtoId)[0];
+    if (produto.unidade == 'cx') {
+      if (!("subCaixas" in pedido)) {
+        pedido.subCaixas = element.quantidade;
+      } else {
+        pedido.subCaixas += element.quantidade;
+      }
+    }
+    if (produto.unidade == 'kg') {
+      if (!("subQuilos" in pedido)) {
+        pedido.subQuilos = element.quantidade;
+      } else {
+        pedido.subQuilos += element.quantidade;
+      }
+    }
+    if (produto.unidade == 'und') {
+      if (!("subUnidades" in pedido)) {
+        pedido.subUnidades = element.quantidade;
+      } else {
+        pedido.subUnidades += element.quantidade;
+      }
+    }
+    newItems.push({
+      "produtoId": element.produtoId,
+      "quantidade": element.quantidade,
+      "produto": produto
+    })
+  });
+  pedido.items = newItems;
+  return pedido;
 }

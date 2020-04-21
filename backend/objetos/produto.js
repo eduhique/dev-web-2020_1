@@ -21,12 +21,11 @@ module.exports.writeprodutos = async produtos => {
     if (err) {
       throw err;
     }
-    produtos = data;
   });
 }
 
-module.exports.findProdutosByNome = query => {
-  return this.produtos.filter(obj => {
+module.exports.findProdutosByNome = (query, produtos) => {
+  return produtos.filter(obj => {
     if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
       return obj.nome.toLowerCase().indexOf(query.toLowerCase()) > -1;
     } else {

@@ -12,7 +12,7 @@ router.route('/')
   })
   .post(function (req, res) {
     try {
-      let newRomaneio = new Romaneio(req.body.title, req.body.date, req.body.dateAtual, ultil.getNextId(romaneios));
+      let newRomaneio = new Romaneio(req.body.date, req.body.dateAtual, ultil.getNextId(romaneios));
       romaneios.push(newRomaneio);
       res.status(201).json(newRomaneio);
     } catch (err) {
@@ -35,21 +35,21 @@ router.route('/')
     Romaneio.writeromaneios(romaneios);
   });
 
+router.get('/search/', function (req, res) {
+  let result = Romaneio.findRomaneioByTitle(req.query.s, romaneios);
+  if (result.length !== 0) {
+    res.status(200).json(result);
+  } else {
+    ultil.erro(res, 404, `query não encontrada.`)
+  }
+})
+
 router.get('/:romaneioId', function (req, res) {
   let result = ultil.findById(romaneios, req.params.romaneioId);
   if (result.length !== 0) {
     res.status(200).json(result[0]);
   } else {
     ultil.erro(res, 404, `Id(${req.params.romaneioId}) passado não está presente na base.`)
-  }
-})
-
-router.get('/search/', function (req, res) {
-  let result = Romaneio.findRomaneioByTitle(req.query.s);
-  if (result.length !== 0) {
-    res.status(200).json(result[0]);
-  } else {
-    ultil.erro(res, 404, `query não encontrada.`)
   }
 })
 

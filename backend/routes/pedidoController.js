@@ -38,7 +38,7 @@ router.route('/')
 router.get('/:pedidoId', function (req, res) {
   let result = ultil.findById(pedidos, req.params.pedidoId);
   if (result.length !== 0) {
-    res.status(200).json(result[0]);
+    res.status(200).json(Pedido.resume(result[0]));
   } else {
     ultil.erro(res, 404, `Id(${req.params.pedidoId}) passado não está presente na base.`)
   }

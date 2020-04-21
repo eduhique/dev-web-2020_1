@@ -35,21 +35,21 @@ router.route('/')
     Produto.writeprodutos(produtos);
   });
 
+router.get('/search/', function (req, res) {
+  let result = Produto.findProdutosByNome(req.query.s, produtos);
+  if (result.length !== 0) {
+    res.status(200).json(result);
+  } else {
+    ultil.erro(res, 404, `query não encontrada.`)
+  }
+})
+
 router.get('/:produtoId', function (req, res) {
   let result = ultil.findById(produtos, req.params.produtoId);
   if (result.length !== 0) {
     res.status(200).json(result[0]);
   } else {
     ultil.erro(res, 404, `Id(${req.params.produtoId}) passado não está presente na base.`)
-  }
-})
-
-router.get('/search/', function (req, res) {
-  let result = Produto.findProdutosByNome(req.query.s);
-  if (result.length !== 0) {
-    res.status(200).json(result[0]);
-  } else {
-    ultil.erro(res, 404, `query não encontrada.`)
   }
 })
 
