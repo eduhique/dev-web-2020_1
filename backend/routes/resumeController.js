@@ -19,7 +19,6 @@ var resume = romaneioId => {
     throw `RomaneioId(${romaneioId}) inválido.`
   }
   result.romaneio = romaneio[0];
-  result.total = 0;
   result.items = []
   pedidos.forEach(element => {
     if (romaneioId == element.romaneioId) {
@@ -35,7 +34,27 @@ var resume = romaneioId => {
         } else {
           items[produto.id].quantidade += e.quantidade;
         }
-        result.total += e.quantidade;
+        if (produto.unidade == 'cx') {
+          if (!("subCaixas" in result)) {
+            result.subCaixas = e.quantidade;
+          } else {
+            result.subCaixas += e.quantidade;
+          }
+        }
+        if (produto.unidade == 'kg') {
+          if (!("subQuilos" in result)) {
+            result.subQuilos = e.quantidade;
+          } else {
+            result.subQuilos += e.quantidade;
+          }
+        }
+        if (produto.unidade == 'und') {
+          if (!("subUnidades" in result)) {
+            result.subUnidades = e.quantidade;
+          } else {
+            result.subUnidades += e.quantidade;
+          }
+        }
       });
     }
   });

@@ -3,6 +3,11 @@
   flex-direction: column;
   
 }
+
+.resume-product {
+  text-align: center;
+}
+
 .resume-title{
   text-align: center;
 }

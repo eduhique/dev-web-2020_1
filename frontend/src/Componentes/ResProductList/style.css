@@ -1,0 +1,27 @@
+.resume-list {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 50%;
+}
+
+th {
+  font-size: 30px;
+  text-align: center;
+  border: 1px;
+}
+
+td {
+  border-bottom: 2px solid rgba(184,184,184,0.3);
+}
+
+.colum-item {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.colum-item#colum-qtd{
+  text-align: center;
+}
