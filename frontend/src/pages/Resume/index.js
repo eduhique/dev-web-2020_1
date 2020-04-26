@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Loading from '../Componentes/Loading'
-import ResumeTotais from '../Componentes/ResumeTotais'
-import ResumeList from '../Componentes/ResumeList'
-import api from '../services/Api';
+import Loading from '../../Components/Loading'
+import ResumeTotais from '../../Components/ResumeTotais'
+import ResumeList from '../../Components/ResumeList'
+import api from '../../services/Api';
 import './resume.css';
 
 function Resume(props) {

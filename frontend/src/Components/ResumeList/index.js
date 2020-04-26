@@ -16,7 +16,7 @@ function ResumeList(props) {
           {
             props.resume.items.map((element) => (
               <tr key={element.id}>
-                <td className="colum-item" >{element.nome} <Link to={`/resume/product/?romaneioId=${props.romaneioId}&produtoId=${element.id}`}>Mais</Link> </td>
+                <td className="colum-item" ><Link to={`/resume/product/?romaneioId=${props.romaneioId}&produtoId=${element.id}`}>{element.nome}</Link> </td>
                 <td className="colum-item" id="colum-qtd">{element.quantidade} {element.unidade}</td>
               </tr>
             ))

@@ -5,10 +5,34 @@ var router = express.Router();
 
 const pedidos = Pedido.pedidos;
 
+function pedidoList(list) {
+  let result = []
+  list.forEach(element => {
+    let pedido = {};
+    Object.assign(pedido, element);
+    let aux = Pedido.resume(pedido);
+    result.unshift(aux);
+  });
+  return result;
+}
+
+function pedidoRomaneioList(list, romaneioId) {
+  let result = [];
+  list.forEach(element => {
+    let pedido = {};
+    Object.assign(pedido, element);
+    let aux = Pedido.resume(pedido);
+    if (element.romaneioId == romaneioId) {
+      result.unshift(aux);
+    }
+  });
+  return result;
+}
+
 /* CRUD */
 router.route('/')
   .get(function (req, res) {
-    res.json(pedidos);
+    res.json(pedidoList(pedidos));
   })
   .post(function (req, res) {
     try {
@@ -35,10 +59,21 @@ router.route('/')
     Pedido.writepedidos(pedidos);
   });
 
+router.get('/romaneio/:romaneioId', function (req, res) {
+  let result = pedidoRomaneioList(pedidos, req.params.romaneioId);
+  if (result.length !== 0) {
+    res.status(200).json(result);
+  } else {
+    ultil.erro(res, 404, `RomaneioId(${req.params.romaneioId}) passado não possui pedidos.`)
+  }
+})
+
 router.get('/:pedidoId', function (req, res) {
   let result = ultil.findById(pedidos, req.params.pedidoId);
+  let pedido = {};
   if (result.length !== 0) {
-    res.status(200).json(Pedido.resume(result[0]));
+    Object.assign(pedido, result[0]);
+    res.status(200).json(Pedido.resume(pedido));
   } else {
     ultil.erro(res, 404, `Id(${req.params.pedidoId}) passado não está presente na base.`)
   }

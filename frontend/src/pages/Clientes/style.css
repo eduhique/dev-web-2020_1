@@ -1,6 +1,10 @@
-.resume-list {
+.cliente-list {
   display: flex;
   justify-content: center;
+}
+
+.cliente-title{
+  text-align: center;
 }
 
 table {
@@ -8,7 +12,7 @@ table {
 }
 
 th {
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   border: 1px;
 }
@@ -18,10 +22,10 @@ td {
 }
 
 .colum-item {
-  font-size: 20px;
-  padding-bottom: 20px;
+  font-size: 16px;
+  padding-bottom: 16px;
 }
 
-.colum-item#colum-qtd{
+.colum-item#colum-tipo{
   text-align: center;
 }

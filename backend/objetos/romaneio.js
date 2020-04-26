@@ -14,25 +14,25 @@ module.exports = class Romaneio {
     let newTitle = ''
 
     if (dataAux.getUTCDay() == 0) {
-      newTitle = `Domingo (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Domingo (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if (dataAux.getUTCDay() == 1) {
-      newTitle = `Segunda-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Segunda-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if (dataAux.getUTCDay() == 2) {
-      newTitle = `Terça-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Terça-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if (dataAux.getUTCDay() == 3) {
-      newTitle = `Quarta-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Quarta-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if (dataAux.getUTCDay() == 4) {
-      newTitle = `Quinta-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Quinta-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if (dataAux.getUTCDay() == 5) {
-      newTitle = `Sexta-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Sexta-Feira (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if (dataAux.getUTCDay() == 6) {
-      newTitle = `Sábado (${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()})`
+      newTitle = `Sábado (${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()})`
     }
     if ((newTitle === null) || (newTitle === undefined) || (newTitle.trim() === '')) {
       throw `O title: ${newTitle} não é válido.`

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Loading from '../Componentes/Loading'
-import api from '../services/Api';
+import Loading from '../../Components/Loading'
+import ResProductList from '../../Components/ResProductList';
+import api from '../../services/Api';
 import './style.css';
-import ResProductList from '../Componentes/ResProductList';
 
 function ResumeProduct(props) {
   const [resumeProduct, setResumeProduct] = useState();

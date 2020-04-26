@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import api from '../services/Api';
-import Loading from '../Componentes/Loading'
+import Loading from '../../Components/Loading'
+import api from '../../services/Api';
 import { Link } from 'react-router-dom'
 
 function getDataFormat(data) {
   let dataAux = new Date(data);
-  return `${dataAux.getUTCDate()}/${dataAux.getUTCMonth()}/${dataAux.getUTCFullYear()}`
+  return `${dataAux.getUTCDate()}/${dataAux.getUTCMonth() + 1}/${dataAux.getUTCFullYear()}`
 }
 
 function Romaneios() {
