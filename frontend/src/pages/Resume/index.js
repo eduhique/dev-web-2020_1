@@ -3,7 +3,7 @@ import Loading from '../../Components/Loading'
 import ResumeTotais from '../../Components/ResumeTotais'
 import ResumeList from '../../Components/ResumeList'
 import api from '../../services/Api';
-import './resume.css';
+import './style.css';
 
 function Resume(props) {
   const [resume, setResume] = useState();

@@ -3,7 +3,7 @@ import Loading from '../../Components/Loading'
 import ResumeTotais from '../../Components/ResumeTotais'
 import { Link } from 'react-router-dom'
 import api from '../../services/Api';
-import './resume.css';
+import './style.css';
 
 function getDataFormat(data) {
   let dataAux = new Date(data);
