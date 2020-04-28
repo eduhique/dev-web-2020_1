@@ -1,0 +1,12 @@
+.resume{
+  display: flex;
+  flex-direction: column;
+  
+}
+.resume-title{
+  text-align: center;
+}
+
+hr{
+  width: 100%;
+}

@@ -26,7 +26,7 @@ function Romaneios() {
         <div className="romaneio">
           {
             romaneios.map((e) => (
-              <li key={e.id}><Link to={`/resume/${e.id}`} >{e.title} {getDataFormat(e.date)}</Link></li>
+              <li key={e.id}><Link to={`/pedido/${e.id}`} >{e.title} {getDataFormat(e.date)}</Link></li>
             ))
           }
         </div>

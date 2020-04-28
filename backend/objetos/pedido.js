@@ -75,8 +75,8 @@ module.exports.resume = pedido => {
       "produto": produto
     })
   });
-  pedido.cliente = ultil.findById(cliente.clientes, pedido.clienteId);
-  pedido.romaneio = ultil.findById(Romaneio.romaneios, pedido.romaneioId);
+  pedido.cliente = ultil.findById(cliente.clientes, pedido.clienteId)[0];
+  pedido.romaneio = ultil.findById(Romaneio.romaneios, pedido.romaneioId)[0];
   pedido.items = newItems;
   return pedido;
 }
