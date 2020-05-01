@@ -9,8 +9,6 @@ import Produtos from './pages/Produtos';
 import Clientes from './pages/Clientes';
 import Pedidos from './pages/Pedidos';
 
-
-
 function App() {
   return (
     <div className="App">

@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import NewProduct from '../../Components/NewProduct';
 import Loading from '../../Components/Loading'
 import api from '../../services/Api';
+
 // import { Link } from 'react-router-dom'
 
 function Produtos() {
-  const [produtos, setProdutos] = useState();
+  const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function addProduct(produto) {
+    setLoading(true);
+    await produtos.push(produto);
+    setLoading(false);
+  }
 
   useEffect(_ => {
     async function getData() {
@@ -17,7 +26,8 @@ function Produtos() {
   return (
     <div>
       <div className="produto-title"><h2>Produto</h2></div>
-      {produtos === undefined ? <Loading /> :
+      <NewProduct onSubmit={addProduct} />
+      {loading ? <Loading /> :
         <div className="produto-list">
           {
             produtos.map((e) => (
