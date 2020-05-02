@@ -26,7 +26,7 @@ const api = axios.create({
 api.interceptors.response.use((response) => {
   return response;
 }, function (error) {
-  console.log("The following error occurred: ", error.response.data.message)
+  console.log("The following error occurred: ", error.response.data)
   // if (error.response) {
   //   if (error.response.data.message.includes("") || error.response.data.message.includes("")) {
   //     //Token is invalid

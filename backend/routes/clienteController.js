@@ -18,7 +18,7 @@ router.route('/')
     } catch (err) {
       ultil.erro(res, 400, err);
     }
-    cliente.writeClientes(clientes)
+    cliente.writeClientes(clientes);
   })
   .put(function (req, res) {
     if ((req.body.id !== undefined && !isNaN(req.body.id)) && (req.body.id > 0) && (req.body.id <= clientes.length)) {

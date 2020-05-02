@@ -35,7 +35,7 @@ function Pedidos(props) {
             <hr />
             {
               pedidos.map((element) => (
-                <div className="pedido">
+                <div className="pedido" key={element.id}>
                   <div className="cliente-info">
                     <b>Cliente:</b> {element.cliente.nome}
                     <b>Tipo:</b>{element.cliente.tipo}
@@ -47,8 +47,8 @@ function Pedidos(props) {
                         <th>Produto</th>
                         <th>Quantidade</th>
                       </tr>
-                      {element.items.map((e) => (
-                        <tr key={e.id}>
+                      {element.items.map((e, i) => (
+                        <tr key={i}>
                           <td className="colum-item" >{e.produto.nome}</td>
                           <td className="colum-item" id="colum-qtd">{e.quantidade} {e.produto.unidade}</td>
                         </tr>

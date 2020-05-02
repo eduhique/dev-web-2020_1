@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import NewProduct from '../../Components/NewProduct';
 import Loading from '../../Components/Loading'
 import api from '../../services/Api';
+// import { Link } from 'react-router-dom';
+import './style.css';
 
-// import { Link } from 'react-router-dom'
 
 function Produtos() {
   const [produtos, setProdutos] = useState([]);

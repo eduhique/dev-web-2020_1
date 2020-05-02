@@ -1,7 +1,9 @@
 import React from 'react';
 import {
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+import './style.css';
+
 
 function Dashboard() {
   return (

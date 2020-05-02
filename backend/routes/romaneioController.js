@@ -12,7 +12,7 @@ router.route('/')
   })
   .post(function (req, res) {
     try {
-      let newRomaneio = new Romaneio(req.body.date, req.body.dateAtual, ultil.getNextId(romaneios));
+      let newRomaneio = new Romaneio(req.body.title, req.body.date, req.body.dateAtual, ultil.getNextId(romaneios));
       romaneios.push(newRomaneio);
       res.status(201).json(newRomaneio);
     } catch (err) {
