@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Loading from '../../Components/Loading'
-import ResumeTotais from '../../Components/ResumeTotais'
 import { Link } from 'react-router-dom'
 import api from '../../services/Api';
 import './style.css';
+import PedidoItem from '../../Components/PedidoItem';
 
 function getDataFormat(data) {
   let dataAux = new Date(data);
@@ -35,30 +35,7 @@ function Pedidos(props) {
             <hr />
             {
               pedidos.map((element) => (
-                <div className="pedido" key={element.id}>
-                  <div className="cliente-info">
-                    <b>Cliente:</b> {element.cliente.nome}
-                    <b>Tipo:</b>{element.cliente.tipo}
-                  </div>
-                  <br />
-                  <table>
-                    <tbody>
-                      <tr>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                      </tr>
-                      {element.items.map((e, i) => (
-                        <tr key={i}>
-                          <td className="colum-item" >{e.produto.nome}</td>
-                          <td className="colum-item" id="colum-qtd">{e.quantidade} {e.produto.unidade}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <ResumeTotais subCaixas={element.subCaixas} subQuilos={element.subQuilos} subUnidades={element.subUnidades} />
-                  <hr />
-                  <br />
-                </div>
+                <PedidoItem pedido={element} />
               ))
             }
           </div>

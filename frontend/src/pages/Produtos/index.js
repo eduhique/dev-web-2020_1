@@ -4,6 +4,7 @@ import Loading from '../../Components/Loading'
 import api from '../../services/Api';
 // import { Link } from 'react-router-dom';
 import './style.css';
+import ProdutosList from '../../Components/ProdutosList';
 
 
 function Produtos() {
@@ -29,13 +30,7 @@ function Produtos() {
       <div className="produto-title"><h2>Produto</h2></div>
       <NewProduct onSubmit={addProduct} />
       {loading ? <Loading /> :
-        <div className="produto-list">
-          {
-            produtos.map((e) => (
-              <li key={e.id}>{e.nome} - <b>Unidade:</b> {e.unidade}</li>
-            ))
-          }
-        </div>
+        <ProdutosList produtos={produtos} />
       }
     </div>
   );
