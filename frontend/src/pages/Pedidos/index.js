@@ -29,13 +29,14 @@ function Pedidos(props) {
           <div className="romaneio-title"><h2>{pedidos[0].romaneio.title}</h2></div>
           <div className="romaneio-data"><h2>{getDataFormat(pedidos[0].romaneio.date)}</h2></div>
           <p><Link to={`/resume/${pedidos[0].romaneio.id}`} >Relatório</Link></p>
+          {/* <p><Link to={`/pedido/new/${pedidos[0].romaneio.id}`} >Novo Pedido</Link></p> */}
           <br />
           <h3>Pedidos:</h3>
           <div className="pedido-list">
             <hr />
             {
               pedidos.map((element) => (
-                <PedidoItem pedido={element} />
+                <PedidoItem pedido={element} key={element.id} />
               ))
             }
           </div>

@@ -4,7 +4,7 @@ import './style.css';
 
 function PedidoItem({ pedido }) {
   return (
-    <div className="pedido" key={pedido.id}>
+    <div className="pedido">
       <div className="cliente-info">
         <b>Cliente:</b> {pedido.cliente.nome}
         <b>Tipo:</b>{pedido.cliente.tipo}
