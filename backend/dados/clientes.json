@@ -2,66 +2,66 @@
   {
     "id": 1,
     "nome": "Loura",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 2,
     "nome": "Vicente",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 3,
     "nome": "Zezinho",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 4,
     "nome": "Boião",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 5,
     "nome": "Ronaldinho",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 6,
     "nome": "Manoel Mercado Central",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 7,
     "nome": "Janaína",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 8,
     "nome": "Braga",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 9,
     "nome": "Toninho",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 10,
     "nome": "Edmilson",
-    "tipo": "Grossista"
+    "tipo": "Atacado"
   },
   {
     "id": 11,
     "nome": "Inaldo",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 12,
     "nome": "Gordo",
-    "tipo": "Loja"
+    "tipo": "Varejo"
   },
   {
     "id": 13,
     "nome": "Petronio",
-    "tipo": "Grossista"
+    "tipo": "Atacado"
   }
 ]

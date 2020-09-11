@@ -5,8 +5,8 @@ module.exports = class Cliente {
     if ((nome === null) || (nome === undefined) || (nome.trim() === '')) {
       throw "Insira um nome Válido, que não seja Vazio."
     }
-    if ((tipo === null) || (tipo === undefined) || !((tipo == 'Loja') || (tipo == 'Grossista'))) {
-      throw "Só são Aceitos os tipos 'loja' e 'Grossista'."
+    if ((tipo === null) || (tipo === undefined) || !((tipo == 'Varejo') || (tipo == 'Atacado'))) {
+      throw "Só são Aceitos os tipos 'Varejo' e 'Atacado'."
     }
     this.id = id;
     this.nome = nome;

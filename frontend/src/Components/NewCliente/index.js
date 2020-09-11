@@ -6,7 +6,7 @@ import './style.scss';
 
 function NewCliente({ onSubmit }) {
   const [nome, setNome] = useState();
-  const [tipo, setTipo] = useState('Loja');
+  const [tipo, setTipo] = useState('Varejo');
   const [botao, setBotao] = useState(true);
   const [loading, setLoading] = useState(false);
   const headers = {
@@ -49,8 +49,8 @@ function NewCliente({ onSubmit }) {
           <label>
             tipo:
             <select value={tipo} name="tipo" onChange={handleChange}>
-              <option value="Loja">Loja</option>
-              <option value="Grossista">Grossista</option>
+              <option value="Varejo">Varejo</option>
+              <option value="Atacado">Atacado</option>
             </select>
           </label>
           <input type="submit" disabled={botao} value="Cadastrar"></input>
