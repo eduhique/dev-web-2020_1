@@ -21,10 +21,11 @@ router.route('/')
     Produto.writeprodutos(produtos);
   })
   .put(function (req, res) {
-    if ((req.body.id !== undefined && !isNaN(req.body.id)) && (req.body.id > 0) && (req.body.id <= produtos.length)) {
+    let indexOfProduto = ultil.findIndexOf(produtos, req.body.id);
+    if (indexOfProduto > -1) {
       try {
         let produtosPut = new Produto(req.body.nome, req.body.unidade, req.body.id);
-        produtos.splice(req.body.id - 1, 1, produtosPut);
+        produtos.splice(indexOfProduto, 1, produtosPut);
         res.status(200).json(ultil.findById(produtos, req.body.id)[0]);
       } catch (err) {
         ultil.erro(res, 400, err);
@@ -54,8 +55,9 @@ router.get('/:produtoId', function (req, res) {
 })
 
 router.delete('/:produtoId', function (req, res) {
-  if ((req.params.produtoId !== undefined && !isNaN(req.params.produtoId)) && (req.params.produtoId > 0) && (req.params.produtoId <= produtos.length)) {
-    produtos.splice(req.params.produtoId - 1, 1);
+  let indexOfProduto = ultil.findIndexOf(produtos, req.params.produtoId);
+  if (indexOfProduto > -1) {
+    produtos.splice(indexOfProduto, 1);
     res.status(204).send();
   } else {
     ultil.erro(res, 404, `Id(${req.params.produtoId}) passado não está presente na base.`);

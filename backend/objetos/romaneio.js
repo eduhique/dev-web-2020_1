@@ -7,8 +7,6 @@ module.exports = class Romaneio {
     }
     let dataAux = new Date(data);
 
-    console.log(new Date(dataAtual), dataAux, new Date(dataAtual) >= dataAux)
-
     if (new Date(dataAtual) > dataAux) {
       throw "A data passada é anterior a data atual."
     }
@@ -61,11 +59,21 @@ module.exports.writeromaneios = async romaneios => {
 }
 
 module.exports.findRomaneioByTitle = (query, romaneios) => {
-  return romaneios.filter(obj => {
+  let filterForStart = romaneios.filter(obj => {
+    if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
+      return obj.title.toLowerCase().startsWith(query.toLowerCase());
+    } else {
+      return false;
+    }
+  });
+
+  let similar = romaneios.filter(obj => {
     if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
       return obj.title.toLowerCase().indexOf(query.toLowerCase()) > -1;
     } else {
       return false;
     }
-  })
+  });
+
+  return [...new Set([...filterForStart, ...similar])];
 }

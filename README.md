@@ -26,3 +26,8 @@ será possivel ver os romaneios criados em uma lista. É nescessário vincular u
 ### Relatório do romaneio
 
 É possivel visualizar um relatório do romaneio, que irá agrupar os produtos e demonstrar os quantitativos totais. além disso é possivel ver quais clientes pediram um determinado produto.
+
+## Documentaçãodo 
+
+- [Backend](./backend/);
+- Frontend (Em desenvolvimento);

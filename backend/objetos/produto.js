@@ -25,11 +25,21 @@ module.exports.writeprodutos = async produtos => {
 }
 
 module.exports.findProdutosByNome = (query, produtos) => {
-  return produtos.filter(obj => {
+  let filterForStart = produtos.filter(obj => {
+    if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
+      return obj.nome.toLowerCase().startsWith(query.toLowerCase());
+    } else {
+      return false;
+    }
+  });
+
+  let similar = produtos.filter(obj => {
     if (!((query === null) || (query === undefined) || (query.trim() === ''))) {
       return obj.nome.toLowerCase().indexOf(query.toLowerCase()) > -1;
     } else {
       return false;
     }
-  })
+  });
+
+  return [...new Set([...filterForStart, ...similar])];
 }

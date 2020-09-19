@@ -16,3 +16,13 @@ module.exports.getNextId = list => {
   }
   return nextId;
 }
+
+module.exports.findIndexOf = (list, id) => {
+  return list.findIndex(obj => {
+    if ((obj.id !== undefined && !isNaN(obj.id)) && (id > 0) && obj.id == id) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+}

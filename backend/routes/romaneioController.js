@@ -21,10 +21,11 @@ router.route('/')
     Romaneio.writeromaneios(romaneios);
   })
   .put(function (req, res) {
-    if ((req.body.id !== undefined && !isNaN(req.body.id)) && (req.body.id > 0) && (req.body.id <= romaneios.length)) {
+    let indexOfRomaneio = ultil.findIndexOf(romaneios, req.body.id);
+    if (indexOfRomaneio > -1) {
       try {
         let romaneiosPut = new Romaneio(req.body.title, req.body.date, req.body.dateAtual, req.body.id);
-        romaneios.splice(req.body.id - 1, 1, romaneiosPut);
+        romaneios.splice(indexOfRomaneio, 1, romaneiosPut);
         res.status(200).json(ultil.findById(romaneios, req.body.id)[0]);
       } catch (err) {
         ultil.erro(res, 400, err);
@@ -54,8 +55,9 @@ router.get('/:romaneioId', function (req, res) {
 })
 
 router.delete('/:romaneioId', function (req, res) {
-  if ((req.params.romaneioId !== undefined && !isNaN(req.params.romaneioId)) && (req.params.romaneioId > 0) && (req.params.romaneioId <= romaneios.length)) {
-    romaneios.splice(req.params.romaneioId - 1, 1);
+  let indexOfRomaneio = ultil.findIndexOf(romaneios, req.params.romaneioId);
+  if (indexOfRomaneio > -1) {
+    romaneios.splice(indexOfRomaneio, 1);
     res.status(204).send();
   } else {
     ultil.erro(res, 404, `Id(${req.params.romaneioId}) passado não está presente na base.`);
