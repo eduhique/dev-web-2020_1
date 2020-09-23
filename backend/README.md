@@ -18,7 +18,7 @@ $ DEBUG=backend:* npm start
 
 ## Rotas
 
-Uma breve documentação sobre as rotas do sistema.
+Uma breve documentação sobre as rotas do sistema. A API Rest trabalha apenas com `JSON`.
 
 `obs`: A documentação das rotas não totalmente revisada e serve apenas de guia, pois ainda está em desenvolvimento.
 
