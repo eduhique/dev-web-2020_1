@@ -1,9 +1,9 @@
 import React from 'react';
-import './style.css'
+import './style.scss'
 
 function ResProductList(props) {
   return (
-    <div className="resume-list">
+    <div className="report-list">
       <table>
         <tbody>
           <tr>
@@ -11,10 +11,10 @@ function ResProductList(props) {
             <th>Quantidade</th>
           </tr>
           {
-            props.resume.items.map((element) => (
-              <tr key={element.cliente.id}>
-                <td className="colum-item" >{element.cliente.nome}</td>
-                <td className="colum-item" id="colum-qtd">{element.quantidade} {props.unidade}</td>
+            props.report.items.map((element, index) => (
+              <tr key={`${element.client.id}-${index}`}>
+                <td className="colum-item" >{element.client.name}</td>
+                <td className="colum-item" id="colum-qtd">{element.quantity} {props.unit}</td>
               </tr>
             ))
           }

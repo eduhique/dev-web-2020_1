@@ -1,54 +1,56 @@
 import React, { useState } from 'react';
-import Loading from '../../Components/Loading'
+import Loading from '../Loading'
 import api from '../../services/Api';
 // import { Link } from 'react-router-dom';
 import './style.scss';
 
-function NewProduct({ onSubmit }) {
+function NewClient({ onSubmit }) {
   const [name, setName] = useState();
-  const [unit, setUnit] = useState('cx');
+  const [type, setType] = useState('Varejo');
   const [button, setButton] = useState(true);
   const [loading, setLoading] = useState(false);
+  const headers = {
+    'Content-Type': 'application/json',
+    'accept': "*/*"
+  }
 
   var handleSubmit = async event => {
     event.preventDefault();
     setLoading(true)
-    let response = await api.post('product/', { name, unit }).catch(error => {
-      alert(error.data.message);
-    });
-    onSubmit(response.data);
+    await api.post('client/', { name, type }, { headers: headers })
+      .then(response => onSubmit(response.data))
+      .catch(response => alert(response.data));
     setLoading(false);
   }
 
   function handleChange(event) {
     let target = event.target;
-    if (target.name === 'product') {
+    if (target.name === 'client') {
       setName(target.value);
-      if (target.value.trim() !== "") {
+      if (target.name.trim() !== "") {
         setButton(false)
       } else {
         setButton(true)
       }
     }
-    if (target.name === 'unit') {
-      setUnit(target.value);
+    if (target.name === 'type') {
+      setType(target.value);
     }
   }
 
   return (
-    <div className="product-form">
+    <div className="client-form">
       {loading ? <Loading /> :
         <form onSubmit={handleSubmit}>
           <label>
             Nome:
-          <input type="text" name="product" placeholder="ex. Manga Tommy" onChange={handleChange} />
+          <input type="text" id="client" name="client" placeholder="Supermercado de teste" onChange={handleChange} />
           </label>
           <label>
-            Unit:
-            <select value={unit} name="unit" onChange={handleChange}>
-              <option value="cx">Caixa</option>
-              <option value="kg">Quilo</option>
-              <option value="und">Unidade</option>
+            type:
+            <select value={type} name="type" onChange={handleChange}>
+              <option value="Varejo">Varejo</option>
+              <option value="Atacado">Atacado</option>
             </select>
           </label>
           <input type="submit" disabled={button} value="Cadastrar"></input>
@@ -58,4 +60,4 @@ function NewProduct({ onSubmit }) {
   );
 }
 
-export default NewProduct;
+export default NewClient;

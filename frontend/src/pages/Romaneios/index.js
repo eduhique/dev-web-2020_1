@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loading from '../../Components/Loading'
 import api from '../../services/Api';
-import './style.css';
+import './style.scss';
 import NewRomaneio from '../../Components/NewRomaneio';
 import RomaneiosList from '../../Components/RomaneiosList';
 
@@ -10,19 +10,20 @@ function Romaneios() {
   const [loading, setLoading] = useState(false);
 
 
-  async function addRomaneio(romaneio) {
+  async function addRomaneio() {
     setLoading(true);
-    await romaneios.push(romaneio);
-    setLoading(false);
   }
 
   useEffect(_ => {
+    document.title = "Romaneios"
     async function getData() {
       let response = await api.get('romaneio/');
       setRomaneios(response.data);
     }
+    setLoading(true);
     getData();
-  }, [setRomaneios])
+    setLoading(false);
+  }, [setRomaneios, loading])
 
 
   return (

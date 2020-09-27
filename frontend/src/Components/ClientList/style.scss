@@ -1,0 +1,29 @@
+.client-list {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 50%;
+}
+
+th {
+  font-size: 20px;
+  text-align: center;
+  border: 1px;
+}
+
+td {
+  vertical-align: middle;
+  border-bottom: 2px solid rgba(184,184,184,0.3);
+}
+
+.colum-item {
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.colum-item#colum-type{
+  text-align: center;
+}

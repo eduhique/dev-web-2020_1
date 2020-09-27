@@ -11,6 +11,10 @@ const api = axios.create({
   baseURL: 'http://localhost:3000',
 });
 
+export const abort = _ => {
+  axios.CancelToken.source().cancel();
+}
+
 // const requestHandler = (request) => {
 //   const token = "Bearer " + localStorage.getItem("romaneioToken")
 //   if (token) {
