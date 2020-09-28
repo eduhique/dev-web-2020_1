@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Manga Tommy",
+    "unit": "cx"
+  },
+  {
+    "id": 2,
+    "name": "Goiaba Verde",
+    "unit": "cx"
+  },
+  {
+    "id": 3,
+    "name": "Uva Itália",
+    "unit": "cx"
+  },
+  {
+    "id": 4,
+    "name": "Uva Vitoria",
+    "unit": "cx"
+  },
+  {
+    "id": 5,
+    "name": "Uva Sem Semente",
+    "unit": "cx"
+  },
+  {
+    "id": 6,
+    "name": "Uva Nubia",
+    "unit": "cx"
+  },
+  {
+    "id": 7,
+    "name": "Uva Isabel",
+    "unit": "cx"
+  },
+  {
+    "id": 8,
+    "name": "Maracujá",
+    "unit": "cx"
+  },
+  {
+    "id": 9,
+    "name": "Limão",
+    "unit": "cx"
+  },
+  {
+    "id": 10,
+    "name": "Abacate",
+    "unit": "cx"
+  },
+  {
+    "id": 11,
+    "name": "Melão Espanhol",
+    "unit": "cx"
+  },
+  {
+    "id": 12,
+    "name": "Mamão",
+    "unit": "cx"
+  }
+]

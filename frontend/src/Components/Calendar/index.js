@@ -3,20 +3,20 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './style.scss';
 
-function Calendar({ onChange }) {
-  const [data, setData] = useState(new Date());
+function Calendar({ onChange, dateFunction }) {
+  const [date, setData] = useState(new Date());
 
   useEffect(_ => {
     function handleChange() {
-      onChange(data.toJSON().substring(0, 10))
+      onChange(dateFunction(date))
     };
     handleChange();
-  }, [data, onChange])
+  }, [date, onChange, dateFunction])
 
   return (
     (
       <DatePicker
-        selected={data}
+        selected={date}
         onChange={date => setData(date)}
         minDate={new Date()}
         maxDate={new Date(new Date().setMonth(new Date().getMonth() + 3))}

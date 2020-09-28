@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Loura",
+    "type": "Varejo"
+  },
+  {
+    "id": 2,
+    "name": "Vicente",
+    "type": "Varejo"
+  },
+  {
+    "id": 3,
+    "name": "Zezinho",
+    "type": "Varejo"
+  },
+  {
+    "id": 4,
+    "name": "Boião",
+    "type": "Varejo"
+  },
+  {
+    "id": 5,
+    "name": "Ronaldinho",
+    "type": "Varejo"
+  },
+  {
+    "id": 6,
+    "name": "Manoel Mercado Central",
+    "type": "Varejo"
+  },
+  {
+    "id": 7,
+    "name": "Janaína",
+    "type": "Varejo"
+  },
+  {
+    "id": 8,
+    "name": "Braga",
+    "type": "Varejo"
+  },
+  {
+    "id": 9,
+    "name": "Toninho",
+    "type": "Varejo"
+  },
+  {
+    "id": 10,
+    "name": "Edmilson",
+    "type": "Atacado"
+  },
+  {
+    "id": 11,
+    "name": "Inaldo",
+    "type": "Varejo"
+  },
+  {
+    "id": 12,
+    "name": "Gordo",
+    "type": "Varejo"
+  },
+  {
+    "id": 13,
+    "name": "Petronio",
+    "type": "Atacado"
+  }
+]

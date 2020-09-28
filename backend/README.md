@@ -22,35 +22,35 @@ Uma breve documentação sobre as rotas do sistema. A API Rest trabalha apenas c
 
 `obs`: A documentação das rotas não totalmente revisada e serve apenas de guia, pois ainda está em desenvolvimento.
 
-### [Controller de Clientes](./routes/clienteController.js)
+### [Controller de Clientes](./routes/clientController.js)
 
-#### [POST] /cliente/
+#### [POST] /client/
 
 Cria um novo cliente. Os tipos aceitos são `Varejo` e `Atacado`.
 
 - Parâmetros
 ``` {json}
 {
-	"nome":"string",
-	"tipo":"string"
+	"name":"string",
+	"type":"string"
 }
 ```
 
-#### [GET] /cliente/:clienteId
+#### [GET] /client/:clientId
 
-Retorna um cliente cadastrado a partir do `clienteId` que é o identificador único.
+Retorna um cliente cadastrado a partir do `clientId` que é o identificador único.
 
 - Parâmetros
-> Ex: /cliente/4
+> Ex: /client/4
 
-#### [GET] /cliente/
+#### [GET] /client/
 
 Retorna todos os clientes cadastrados.
 
 - Parâmetros
 > nenhum
 
-#### [GET] /cliente/search/
+#### [GET] /client/search/
 
 Retorna uma lista de clientes correspondente a query requisitada.
 
@@ -58,141 +58,141 @@ Retorna uma lista de clientes correspondente a query requisitada.
 
   - `s`: query de busca
 
-> /cliente/search/?s=mercadinho
+> EX: /client/search/?s=bra
 
-#### [PUT] /cliente/
+#### [PUT] /client/
 
 modifica um cliente salvo a partir do id. Os tipos aceitos são `Varejo` e `Atacado`.
 
 - Parâmetros
 ``` {json}
 {
-	"id": clienteId,
-	"nome":"string",
-	"tipo":"string"
+	"id": clientId,
+	"name":"string",
+	"type":"string"
 }
 ```
 
-#### [DELETE] /cliente/:cliente_id
+#### [DELETE] /client/:client_id
 
-Apaga um cliente cadastrado a partir do `clienteId` que é o identificador único.
+Apaga um cliente cadastrado a partir do `clientId` que é o identificador único.
 
 - Parâmetros
-> Ex: /cliente/4
+> Ex: /client/4
 
-### [Controller de Produtos](./routes/produtoController.js)
+### [Controller de Produtos](./routes/productController.js)
 
-#### [POST] /produto/
+#### [POST] /product/
 
 Cria um novo produto. As unidades aceitas são `kg`, `cx` e `und`.
 
 - Parâmetros
 ``` {json}
 {
-	"nome":"string",
-	"unidade":"string"
+	"name":"string",
+	"unit":"string"
 }
 ```
 
-#### [GET] /produto/:produtoId
-Retorna um produto cadastrado a partir do `produtoId` que é o identificador único.
+#### [GET] /product/:productId
+Retorna um produto cadastrado a partir do `productId` que é o identificador único.
 
 - Parâmetros
-> Ex: /produto/4
+> Ex: /product/4
 
-#### [GET] /produto/
+#### [GET] /product/
 Retorna uma lista de produtos cadastrados.
 
 - Parâmetros
 > nenhum
 
-#### [GET] /produto/search/
+#### [GET] /product/search/
 Retorna uma lista de produtos correspondente a query requisitada.
 
 - Parâmetros
 
   - `s`: query de busca
 
-> /produto/search/?s=manga
+> /product/search/?s=manga
 
-#### [PUT] /produto/
+#### [PUT] /product/
 modifica um produto salvo a partir do id. As unidades aceitas são `kg`, `cx` e `und`.
 
 - Parâmetros
 
 ``` {json}
 {
-	"id": produtoId,
-	"nome":"string",
-	"unidade":"string"
+	"id": productId,
+	"name":"string",
+	"unit":"string"
 }
 ```
 
-#### [DELETE] /produto/:produtoId
-Apaga um produto cadastrado a partir do `produtoId` que é o identificador único.
+#### [DELETE] /product/:productId
+Apaga um produto cadastrado a partir do `productId` que é o identificador único.
 
 - Parâmetros
-> Ex: /produto/4
+> Ex: /product/4
 
-### [Controller de Pedidos](./routes/pedidoController.js)
+### [Controller de Pedidos](./routes/orderController.js)
 
-#### [POST] /pedido/
+#### [POST] /order/
 Cria um novo pedido.
 
 - Parâmetros
 ``` {json}
 {
     "romaneioId": romaneioId,
-    "clienteId": clienteId,
+    "clientId": clientId,
     "items": [
       {
-        "produtoId": produtoId,
-        "quantidade": number
+        "productId": productId,
+        "quantity": number
       }
     ]
   }
 ```
 
-#### [GET] /pedido/:pedidoId
-Retorna um pedido cadastrado a partir do `pedidoId` que é o identificador único.
+#### [GET] /order/:orderId
+Retorna um pedido cadastrado a partir do `orderId` que é o identificador único.
 
 - Parâmetros
-> Ex: /pedido/4
+> Ex: /order/4
 
-#### [GET] /pedido/romaneio/:romaneioId
+#### [GET] /order/romaneio/:romaneioId
 Retorna uma lista com todos os pedidos de um determinado `romaneioId`, qque é o identificador único.
 
 - Parâmetros
-> Ex: /pedido/romaneio/4
+> Ex: /order/romaneio/4
 
-#### [GET] /pedido/
+#### [GET] /order/
 Retorna todos os pedidos cadastrados.
 
 - Parâmetros
 > nenhum
 
-#### [PUT] /pedido/
+#### [PUT] /order/
 modifica um pedido salvo a partir do id.
 
 ``` {json}
 {
-  "id": pedidoId,
+  "id": orderId,
   "romaneioId": romaneioId,
-  "clienteId": clienteId,
+  "clientId": clientId,
   "items": [
     {
-      "produtoId": produtoId,
-      "quantidade": number
+      "productId": productId,
+      "quantity": number
     }
   ]
 }
 ```
 
-#### [DELETE] /pedido/:pedidoId
-Apaga um cliente cadastrado a partir do `pedidoId` que é o identificador único.
+#### [DELETE] /order/:orderId
+Apaga um cliente cadastrado a partir do `orderId` que é o identificador único.
 
 - Parâmetros
-> Ex: /pedido/4
+> Ex: /order/4
 
 
 ### [Controller de romaneios](./routes/romaneioController.js)
@@ -246,26 +246,26 @@ modifica um romaneio salvo a partir do id.
 Apaga um romaneio cadastrado a partir do `romaneioId` que é o identificador único.
 
 - Parâmetros
-> Ex: /cliente/4
+> Ex: /client/4
 
 
-### [Controller de relatórios](./routes/resumeController.js)
+### [Controller de relatórios](./routes/reportController.js)
 
-#### [GET] /resume/:romaneioId
+#### [GET] /report/:romaneioId
 Retorna um relatório criado a partir de todos os pedidos de um determinado romananeio passado atraves do `romaneioId`.
 
 - Parâmetros
-> Ex: /romaneio/4
+> Ex: /report/4
 
-#### [GET] /romaneio/product/
-Retorna um relatório criado considerando o `romaneioId` e `produtoId` passado como query.
+#### [GET] /report/product/
+Retorna um relatório criado considerando o `romaneioId` e `productId` passado como query.
 
 - Parâmetros
 
   - `romaneioId`: identificador único do romaneio.
-  - `produtoId`: identificador único do produto.
+  - `productId`: identificador único do produto.
 
-> /resume/product/?romaneioId=1&produtoId=8
+> /report/product/?romaneioId=1&productId=8
 
 ## Armazenamento do Dados provisório
 

@@ -1,8 +1,8 @@
-.resume{
+.report{
   display: flex;
   flex-direction: column;
 }
-.resume-title{
+.report-title{
   text-align: center;
 }
 
@@ -10,12 +10,12 @@ hr{
   width: 100%;
 }
 
-.resume-sub {
+.report-sub {
   display: flex;
   text-align: left;
 }
 
-.resume-list {
+.report-list {
   display: flex;
   justify-content: center;
 }
