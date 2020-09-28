@@ -266,3 +266,7 @@ Retorna um relatório criado considerando o `romaneioId` e `produtoId` passado c
   - `produtoId`: identificador único do produto.
 
 > /resume/product/?romaneioId=1&produtoId=8
+
+## Armazenamento do Dados provisório
+
+Os arquivos na pasta [dados](./dados/) correspondem ao armazenamento e memória ultilizado até então. Ele são um conjunto arquivos JSON que não podem ser apagados durante essa fase do desenvolvimento e devem conter um lista vazia ou seguindo o modelo já colocado para testes e desenvoviemento. Sem esses arquivos a aplicação não funcionará. Futuramente isso será melhorado para algo mais concreto e modular.
