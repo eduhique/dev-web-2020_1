@@ -1,4 +1,5 @@
 const fs = require('fs');
+const LIST_PATH = './data/clients.json';
 
 module.exports = class Client {
   constructor(name, type, id) {
@@ -14,10 +15,16 @@ module.exports = class Client {
   }
 };
 
-module.exports.clients = JSON.parse(fs.readFileSync('./dados/clients.json')) || [];
+module.exports.clients = (_ => {
+  if (fs.existsSync(LIST_PATH)) {
+    return JSON.parse(fs.readFileSync(LIST_PATH));
+  } else {
+    return [];
+  }
+})()
 
 module.exports.writeClients = async clients => {
-  fs.writeFile('./dados/clients.json', JSON.stringify(clients), function read(err, data) {
+  fs.writeFile(LIST_PATH, JSON.stringify(clients), function read(err, data) {
     if (err) {
       throw err;
     }

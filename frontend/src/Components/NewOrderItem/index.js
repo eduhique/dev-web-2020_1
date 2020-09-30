@@ -21,7 +21,7 @@ function NewOrderItem({ items, setItems, productProps }) {
 
   async function searchProduct(userInput) {
     let data = [];
-    await api.get(`product/search/?s=${userInput}`).then(response => {
+    await api.get(`product/?s=${userInput}`).then(response => {
       data = response.data
     })
       .catch(response => data = []);

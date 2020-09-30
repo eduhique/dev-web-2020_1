@@ -1,4 +1,5 @@
 const fs = require('fs');
+const LIST_PATH = './data/romaneios.json';
 
 module.exports = class Romaneio {
   constructor(title, data, dataAtual, id) {
@@ -48,10 +49,16 @@ module.exports = class Romaneio {
   }
 };
 
-module.exports.romaneios = JSON.parse(fs.readFileSync('./dados/romaneios.json')) || [];
+module.exports.romaneios = (_ => {
+  if (fs.existsSync(LIST_PATH)) {
+    return JSON.parse(fs.readFileSync(LIST_PATH));
+  } else {
+    return [];
+  }
+})()
 
 module.exports.writeromaneios = async romaneios => {
-  fs.writeFile('./dados/romaneios.json', JSON.stringify(romaneios), function read(err, data) {
+  fs.writeFile(LIST_PATH, JSON.stringify(romaneios), function read(err, data) {
     if (err) {
       throw err;
     }

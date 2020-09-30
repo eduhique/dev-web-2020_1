@@ -22,6 +22,7 @@ function NewRomaneio({ onSubmit }) {
     await api.post('romaneio/', { title, date, dateAtual: getDataFormat(dateAtual) })
       .then(response => onSubmit())
       .catch(response => alert(response.data));
+    setTitle("");
     setLoading(false);
   }
 
