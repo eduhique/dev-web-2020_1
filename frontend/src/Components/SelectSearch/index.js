@@ -32,9 +32,12 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
   function onBlur(event) {
     if (!inside) {
       setEnabled(false)
-      if (!userInput) {
+      if (!userInput || filteredList.length === 0) {
         onSelect({});
         setUserInput("");
+      } else if (userInput && filteredList.length !== 0) {
+        const item = filteredList[filteredIndex];
+        selectItem(item)
       }
     }
   }

@@ -26,7 +26,7 @@ function NewOrder(props) {
 
   async function searchClients(userInput) {
     let data = [];
-    await api.get(`client/search/?s=${userInput}`).then(response => {
+    await api.get(`client/?s=${userInput}`).then(response => {
       data = response.data
     })
       .catch(response => data = []);

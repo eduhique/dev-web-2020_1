@@ -1,4 +1,5 @@
 const fs = require('fs');
+const LIST_PATH = './data/products.json';
 
 module.exports = class Product {
   constructor(name, unit, id) {
@@ -14,10 +15,16 @@ module.exports = class Product {
   }
 };
 
-module.exports.products = JSON.parse(fs.readFileSync('./dados/products.json')) || [];
+module.exports.products = (_ => {
+  if (fs.existsSync(LIST_PATH)) {
+    return JSON.parse(fs.readFileSync(LIST_PATH));
+  } else {
+    return [];
+  }
+})()
 
 module.exports.writeproducts = async products => {
-  fs.writeFile('./dados/products.json', JSON.stringify(products), function read(err, data) {
+  fs.writeFile(LIST_PATH, JSON.stringify(products), function read(err, data) {
     if (err) {
       throw err;
     }

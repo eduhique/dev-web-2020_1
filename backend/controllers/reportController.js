@@ -1,10 +1,8 @@
-var Romaneio = require('../objetos/romaneio')
-var Product = require('../objetos/product')
-var Order = require('../objetos/order')
-var Client = require('../objetos/client')
-const ultil = require('../objetos/ultil')
-var express = require('express');
-var router = express.Router();
+var Romaneio = require('../models/romaneio')
+var Product = require('../models/product')
+var Order = require('../models/order')
+var Client = require('../models/client')
+const utility = require('../models/utility')
 
 const romaneios = Romaneio.romaneios;
 const products = Product.products;
@@ -12,7 +10,7 @@ const clients = Client.clients;
 const orders = Order.orders;
 
 var report = romaneioId => {
-  let romaneio = ultil.findById(romaneios, romaneioId);
+  let romaneio = utility.findById(romaneios, romaneioId);
   let items = {}
   let result = {};
   if (romaneio.length == 0) {
@@ -23,7 +21,7 @@ var report = romaneioId => {
   orders.forEach(element => {
     if (romaneioId == element.romaneioId) {
       element.items.forEach(e => {
-        let product = ultil.findById(products, e.productId)[0];
+        let product = utility.findById(products, e.productId)[0];
         if (!(product.id in items)) {
           items[product.id] = {
             "id": product.id,
@@ -75,7 +73,7 @@ var reportProduct = (product, romaneio) => {
       element.items.forEach(e => {
         if (product.id == e.productId) {
           result.total += e.quantity;
-          let client = ultil.findById(clients, element.clientId);
+          let client = utility.findById(clients, element.clientId);
           items.push({
             "clientId": client.id,
             "client": client[0],
@@ -90,25 +88,23 @@ var reportProduct = (product, romaneio) => {
   return result
 }
 
-router.get('/product/', function (req, res) {
-  let romaneio = ultil.findById(romaneios, req.query.romaneioId);
-  let product = ultil.findById(products, req.query.productId);
+exports.getReportProduct = function (req, res) {
+  let romaneio = utility.findById(romaneios, req.query.romaneioId);
+  let product = utility.findById(products, req.query.productId);
   try {
     if (romaneio.length == 0 || product.length == 0) {
       throw `RomaneioId(${req.query.romaneioId}) ou productId(${req.query.productId}) não são válidos.`
     }
     res.status(200).json(reportProduct(product[0], romaneio[0]));
   } catch (err) {
-    ultil.erro(res, 400, err);
+    utility.error(res, 400, err);
   }
-})
+};
 
-router.get('/:romaneioId', function (req, res) {
+exports.getReport = function (req, res) {
   try {
     res.status(200).json(report(req.params.romaneioId));
   } catch (err) {
-    ultil.erro(res, 400, err);
+    utility.error(res, 400, err);
   }
-})
-
-module.exports = router;
+};

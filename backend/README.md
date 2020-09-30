@@ -47,18 +47,12 @@ Retorna um cliente cadastrado a partir do `clientId` que é o identificador úni
 
 Retorna todos os clientes cadastrados.
 
-- Parâmetros
-> nenhum
+##### filtros avançados
 
-#### [GET] /client/search/
-
-Retorna uma lista de clientes correspondente a query requisitada.
-
-- Parâmetros
-
-  - `s`: query de busca
-
-> EX: /client/search/?s=bra
+- Filtro `search`
+  - parâmetro: `s`;
+  - Função: retorna todos os clientes que contém a query inserida;
+  - > EX: /client/?s=bra
 
 #### [PUT] /client/
 
@@ -103,17 +97,12 @@ Retorna um produto cadastrado a partir do `productId` que é o identificador ún
 #### [GET] /product/
 Retorna uma lista de produtos cadastrados.
 
-- Parâmetros
-> nenhum
+##### filtros avançados
 
-#### [GET] /product/search/
-Retorna uma lista de produtos correspondente a query requisitada.
-
-- Parâmetros
-
-  - `s`: query de busca
-
-> /product/search/?s=manga
+- Filtro `search`
+  - parâmetro: `s`;
+  - Função: retorna todos os produtos que contém a query inserida;
+  - > /product/?s=manga
 
 #### [PUT] /product/
 modifica um produto salvo a partir do id. As unidades aceitas são `kg`, `cx` e `und`.
@@ -218,17 +207,12 @@ Retorna um romaneio cadastrado a partir do `romaneioId` que é o identificador �
 #### [GET] /romaneio/
 Retorna todos os romaneios cadastrados.
 
-- Parâmetros
-> nenhum
+##### filtros avançados
 
-#### [GET] /romaneio/search/
-Retorna uma lista de romaneios correspondente a query requisitada.
-
-- Parâmetros
-
-  - `s`: query de busca
-
-> /romaneio/search/?s=quinta
+- Filtro `search`
+  - parâmetro: `s`;
+  - Função: retorna todos os romaneios que contém a query inserida;
+  - > /romaneio/?s=quinta
 
 #### [PUT] /romaneio/
 modifica um romaneio salvo a partir do id.
@@ -269,4 +253,4 @@ Retorna um relatório criado considerando o `romaneioId` e `productId` passado c
 
 ## Armazenamento do Dados provisório
 
-Os arquivos na pasta [dados](./dados/) correspondem ao armazenamento e memória ultilizado até então. Ele são um conjunto arquivos JSON que não podem ser apagados durante essa fase do desenvolvimento e devem conter um lista vazia ou seguindo o modelo já colocado para testes e desenvoviemento. Sem esses arquivos a aplicação não funcionará. Futuramente isso será melhorado para algo mais concreto e modular.
+Os arquivos na pasta [dados](./data/) correspondem ao armazenamento e memória utilizado até então. Ele são um conjunto arquivos JSON que não podem ser apagados durante essa fase do desenvolvimento e devem conter um lista vazia ou seguindo o modelo já colocado para testes e desenvoviemento. Sem esses arquivos a aplicação não funcionará. Futuramente isso será melhorado para algo mais concreto e modular.
