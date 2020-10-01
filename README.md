@@ -30,4 +30,4 @@ será possivel ver os romaneios criados em uma lista. É nescessário vincular u
 ## Documentação 
 
 - [Backend](./backend/);
-- [Frontend](./frontend/) ;
+- [Frontend](./frontend/).
