@@ -6,28 +6,28 @@ O Romaneio é uma aplicação de gerenciamento de pedidos voltado para pequenos 
 
 ## Funções da aplicação
 
-### Gerenciamentos de clientes
+### Gerenciamentos de clientes:
 
 Será possivel ver os clientes cadastrados em uma lista, onde cada cliente tem um nome e tipo. O campo tipo especifica o seguimento comercial do cliente, que pode ser varejista ou atacadista. Além disso é possivel editar e apagar um cliente.
 
 
-### Gerenciamento de Produtos
+### Gerenciamento de Produtos:
 
 Será possivel ver os produtos cadastrados em uma lista que contem o nome do produto e o tipo de unidade. A princípio podem ser usadas três tipos pré definidos, quilo, caixa ou unidade. Além disso é possivel editar e apagar.
 
-### Gerenciamento de Pedidos
+### Gerenciamento de Pedidos:
 
 Na tela de gerenciamento de pedido será possivel ver todos os pedidos para um determinado romaneio. Cada pedido possui uma descrição completa dos itens que contem, cliente e quantidades. É possivel também criar um pedido para esse romaneio vinculado a um cliente, onde é adicionado produtos. Além disso é possivel editar e apagar.
 
-### Gerenciamento de romaneios
+### Gerenciamento de romaneios:
 
 será possivel ver os romaneios criados em uma lista. É nescessário vincular um romaneio a uma data. Além disso é possivel editar e apagar.
 
-### Relatório do romaneio
+### Relatório do romaneio:
 
 É possivel visualizar um relatório do romaneio, que irá agrupar os produtos e demonstrar os quantitativos totais. além disso é possivel ver quais clientes pediram um determinado produto.
 
-## Documentaçãodo 
+## Documentação 
 
 - [Backend](./backend/);
-- [Frontend](./frontend/) ;
+- [Frontend](./frontend/).
