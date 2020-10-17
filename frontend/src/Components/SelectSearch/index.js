@@ -15,7 +15,7 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
   let inputRef = useRef();
 
   function handleChange(event) {
-    const input = event.currentTarget.value;
+    const input = event.target.value;
     setUserInput(input);
     setEnabled(true);
   }

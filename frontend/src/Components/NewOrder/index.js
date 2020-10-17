@@ -94,7 +94,7 @@ function NewOrder(props) {
           <hr />
           <label>
             <h3>Cliente:</h3>
-            <SelectSearch onSelect={selectClient} placeholder="Escreve o nome do cliente" modelName="Clientes" inputProperty="name" searchFunction={searchClients} />
+            <SelectSearch onSelect={selectClient} placeholder="Escreva o nome do cliente" modelName="Clientes" inputProperty="name" searchFunction={searchClients} />
           </label>
           <label>
             <h3>Tipo:</h3><p>{client.type}</p>
