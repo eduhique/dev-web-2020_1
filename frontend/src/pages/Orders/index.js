@@ -4,34 +4,32 @@ import { Link } from 'react-router-dom'
 import api from '../../services/Api';
 import './style.scss';
 import OrderItem from '../../Components/OrderItem';
+import { useRomaneio } from "../../Components/RomaneioProvider";
 
-function getDataFormat(data) {
+
+const getDataFormat = (data) => {
   let dataAux = new Date(data);
-  return `${dataAux.getDate()}/${dataAux.getMonth() + 1}/${dataAux.getFullYear()}`
+  return `${dataAux.getUTCDate() > 9 ? dataAux.getUTCDate() : `0${dataAux.getUTCDate()}`}/${dataAux.getUTCMonth() > 8 ? dataAux.getUTCMonth() + 1 : `0${dataAux.getUTCMonth() + 1}`}/${dataAux.getUTCFullYear()}`
 }
 
-function Orders(props) {
+function Orders() {
   const [orders, setOrders] = useState([]);
-  const [romaneio, setRomaneio] = useState({});
   const [loading, setLoading] = useState(false);
-  const [romaneioId] = useState(props.match.params.romaneio);
+  const { romaneio } = useRomaneio();
 
   useEffect(_ => {
     async function getData() {
-      let response = await api.get(`order/romaneio/${romaneioId}`);
+      let response = await api.get(`order/romaneio/${romaneio.id}`);
       setOrders(response.data);
-    }
-    async function getRomaneio() {
-      let response = await api.get(`/romaneio/${romaneioId}`);
-      setRomaneio(response.data);
     }
 
     setLoading(true);
-    getRomaneio();
-    getData();
+    if (romaneio.id !== undefined) {
+      getData();
+    }
     setLoading(false);
 
-  }, [romaneioId, setOrders])
+  }, [setOrders, romaneio.id])
 
   return (
     <div>

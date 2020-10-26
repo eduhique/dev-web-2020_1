@@ -3,19 +3,23 @@ import Loading from '../../Components/Loading'
 import ReportTotais from '../../Components/ReportTotais'
 import ReportList from '../../Components/ReportList'
 import api from '../../services/Api';
+import { useRomaneio } from "../../Components/RomaneioProvider";
+
 import './style.scss';
 
 function Report(props) {
   const [report, setReport] = useState();
-  const [romaneioId] = useState(props.match.params.report);
+  const { romaneio } = useRomaneio();
 
   useEffect(_ => {
     async function getData() {
-      let response = await api.get(`report/${romaneioId}`);
+      let response = await api.get(`report/${romaneio.id}`);
       setReport(response.data);
     }
-    getData();
-  }, [romaneioId, setReport])
+    if (romaneio.id !== undefined) {
+      getData();
+    }
+  }, [romaneio.id, setReport])
 
   return (
     <div>

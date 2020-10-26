@@ -70,8 +70,12 @@ function NewOrder(props) {
     setLoading(true);
     getRomaneio()
     setLoading(false);
+    document.getElementById('navigation-select').style.display = "none";
 
-    return _ => abort();
+    return _ => {
+      abort();
+      document.getElementById('navigation-select').style.display = "block";
+    }
   }, [props.match.params.romaneio])
 
   return (

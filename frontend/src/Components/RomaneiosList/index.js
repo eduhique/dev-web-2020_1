@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './style.scss';
+import { useRomaneio } from "../RomaneioProvider";
 
 
 const getDataFormat = (data) => {
@@ -8,15 +9,23 @@ const getDataFormat = (data) => {
   return `${dataAux.getUTCDate() > 9 ? dataAux.getUTCDate() : `0${dataAux.getUTCDate()}`}/${dataAux.getUTCMonth() > 8 ? dataAux.getUTCMonth() + 1 : `0${dataAux.getUTCMonth() + 1}`}/${dataAux.getUTCFullYear()}`
 }
 
-function RomaneiosList({ romaneios }) {
+function RomaneiosList() {
+  const history = useHistory()
+  const { romaneios, setRomaneio } = useRomaneio();
+
+  const handleClick = e => {
+
+    setRomaneio(e);
+    history.push(`/order/`)
+  }
   return (
     <div className="romaneio-list">
       {
-        romaneios.map((e) => (
-          <li key={e.id}><Link to={`/order/${e.id}`} >{e.title} {getDataFormat(e.date)}</Link></li>
+        romaneios.map((element) => (
+          <li key={element.id} onClick={_ => handleClick(element)}> {element.title} {getDataFormat(element.date)}</li>
         ))
       }
-    </div>
+    </div >
   );
 }
 

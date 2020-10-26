@@ -24,6 +24,11 @@ function PostOrder(props) {
     setLoading(true);
     getRomaneios()
     setLoading(false);
+    document.getElementById('navigation-select').style.display = "none";
+
+    return _ => {
+      document.getElementById('navigation-select').style.display = "block";
+    }
   }, [])
 
   return (
@@ -39,7 +44,7 @@ function PostOrder(props) {
           }
         </select>
         <input type="button" value="Novo Pedido" onClick={_ => history.push(`/order/new/${romaneioId}`)} />
-        <input type="button" value="Pedidos" onClick={_ => history.push(`/order/${romaneioId}`)} />
+        <input type="button" value="Pedidos" onClick={_ => history.push(`/order/`)} />
       </div>}
     </div>
   );
