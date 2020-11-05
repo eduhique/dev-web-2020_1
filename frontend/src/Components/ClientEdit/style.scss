@@ -1,0 +1,13 @@
+.client-item{
+  .client-name input{
+    min-width: 200px;
+  }
+  
+  .client-other{
+    .client-edit{
+      input{
+        margin: auto 0.1rem;
+      }
+    }
+  }
+}

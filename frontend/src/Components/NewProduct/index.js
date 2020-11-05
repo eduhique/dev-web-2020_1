@@ -13,7 +13,7 @@ function NewProduct({ onSubmit }) {
   var handleSubmit = async event => {
     event.preventDefault();
     setLoading(true)
-    let response = await api.post('product/', { name, unit }).catch(error => {
+    let response = await api.post('product/', { name: name.trim(), unit }).catch(error => {
       alert(error.data.message);
     });
     onSubmit(response.data);

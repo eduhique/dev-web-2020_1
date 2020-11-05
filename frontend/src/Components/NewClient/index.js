@@ -17,7 +17,7 @@ function NewClient({ onSubmit }) {
   var handleSubmit = async event => {
     event.preventDefault();
     setLoading(true)
-    await api.post('client/', { name, type }, { headers: headers })
+    await api.post('client/', { name: name.trim(), type }, { headers: headers })
       .then(response => onSubmit(response.data))
       .catch(response => alert(response.data));
     setLoading(false);
@@ -27,7 +27,7 @@ function NewClient({ onSubmit }) {
     let target = event.target;
     if (target.name === 'client') {
       setName(target.value);
-      if (target.name.trim() !== "") {
+      if (target.value.trim() !== "") {
         setButton(false)
       } else {
         setButton(true)

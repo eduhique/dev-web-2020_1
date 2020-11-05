@@ -27,6 +27,9 @@ function NavBar() {
   return (
     <header >
       <div className="nav-button">
+        <Link to="/" >Início</Link>
+      </div>
+      <div className="nav-button">
         <Link to="/order/" >Pedidos</Link>
       </div>
       <div className="nav-button">
@@ -37,6 +40,9 @@ function NavBar() {
       </div>
       <div className="nav-button">
         <Link to="/client/" >Clientes</Link>
+      </div>
+      <div>
+        <input type="search" name="nav-search" className="nav-search" />
       </div>
       <div className="nav-button" id="navigation-select">
         <select value={JSON.stringify(romaneio)} name="romaneios" onChange={handleChange}>

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import Report from './pages/Report';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-// import Dashboard from './pages/Dashboard'
+import Dashboard from './pages/Dashboard';
 import Romaneios from './pages/Romaneios';
 import ReportProduct from './pages/ReportProduct';
 import Products from './pages/Products';
@@ -20,7 +20,7 @@ function App() {
         <RomaneioProvider>
           <NavBar />
           <Switch>
-            <Route exact path="/" component={Orders} />
+            <Route exact path="/" component={Dashboard} />
             <Route exact path="/romaneio/" component={Romaneios} />
             <Route exact path="/report/product/" component={ReportProduct} />
             <Route exact path="/report/:report" component={Report} />

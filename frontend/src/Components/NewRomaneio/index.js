@@ -21,7 +21,7 @@ function NewRomaneio() {
   var handleSubmit = async event => {
     event.preventDefault();
     setLoading(true)
-    await api.post('romaneio/', { title, date, dateAtual: getDataFormat(dateAtual) })
+    await api.post('romaneio/', { title: title.trim(), date, dateAtual: getDataFormat(dateAtual) })
       .then(response => setChange(!change))
       .catch(response => alert(response.data));
     setTitle("");

@@ -21,16 +21,18 @@ function Clients() {
       let response = await api.get('client/');
       setClients(response.data);
     }
+    setLoading(true);
     getData();
-  }, [setClients])
+    setLoading(false)
+  }, [setClients, loading])
 
 
   return (
     <div>
-      <div className="client-title"><h1>Clients</h1></div>
+      <div className="client-title"><h1>Clientes</h1></div>
       <NewClient onSubmit={addClient} />
       {loading ? <Loading /> :
-        <ClientsList clients={clients} />
+        <ClientsList clients={clients} setLoading={setLoading} />
       }
     </div>
   );
