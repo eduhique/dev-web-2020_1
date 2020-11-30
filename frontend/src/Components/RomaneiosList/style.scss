@@ -1,0 +1,18 @@
+.container{
+  max-width: 800px;
+  margin: auto;
+}
+.romaneio-list {
+  padding-top: 0.2rem;
+  .actions {
+    margin-bottom: 0.5rem;
+    display: grid;
+    justify-content: end;
+    padding-right: 2rem;
+    div{
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 0.5rem;
+    }
+  }     
+}

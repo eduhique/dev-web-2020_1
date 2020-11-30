@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Link
+  Link, useHistory
 } from 'react-router-dom';
 import { useRomaneio } from "../RomaneioProvider";
 import './style.scss';
-// import Loading from '../../Components/Loading'
-// import api from '../../services/Api';
-// import NewRomaneio from '../../Components/NewRomaneio';
-// import RomaneiosList from '../../Components/RomaneiosList';
 
 const getDataFormat = (data) => {
   let dataAux = new Date(data);
@@ -15,36 +11,65 @@ const getDataFormat = (data) => {
 }
 
 function NavBar() {
+  const history = useHistory();
   const { romaneio, romaneios, setRomaneio } = useRomaneio();
-  // const [loading, setLoading] = useState(false);
+  const [userInput, setUserInput] = useState("");
 
-  const handleChange = e => {
-    let target = e.target;
+  function handleChange(event) {
+    let target = event.target;
+    if (target.name === 'nav-search') {
+      let input = event.target.value;
+      setUserInput(input);
+      search();
+    }
+    if (target.name === 'romaneios') {
+      setRomaneio(JSON.parse(target.value));
+    }
+  }
+  function onKeyPress(event) {
+    if (event.key === 'Enter' && userInput) {
+      search();
+    }
+  }
 
-    setRomaneio(JSON.parse(target.value));
+  function search() {
+    if (userInput) {
+      history.push(`/search?s=${userInput}`)
+    }
   }
 
   return (
-    <header >
-      <div className="nav-button">
-        <Link to="/" >Início</Link>
+    <div id="header-app">
+      <div className="buttons-nav">
+        <div>
+          <Link to="/" className="nav-button">Início</Link>
+        </div>
+        <div>
+          <Link to="/order/" className="nav-button">Pedidos</Link>
+        </div>
+        <div>
+          <Link to="/romaneio/" className="nav-button">Romaneios</Link>
+        </div>
+        <div>
+          <Link to="/product/" className="nav-button">Produtos</Link>
+        </div>
+        <div>
+          <Link to="/client/" className="nav-button">Clientes</Link>
+        </div>
       </div>
-      <div className="nav-button">
-        <Link to="/order/" >Pedidos</Link>
+      <div className="nav-search">
+        <input
+          type="search"
+          name="nav-search"
+          value={userInput}
+          placeholder="Pesquisar"
+          className="search-input"
+          onChange={handleChange}
+          onKeyPress={onKeyPress}
+        />
+        <input type="button" value="Pesquisar" onClick={_ => search()} />
       </div>
-      <div className="nav-button">
-        <Link to="/romaneio/" >Romaneios</Link>
-      </div>
-      <div className="nav-button">
-        <Link to="/product/" >Produtos</Link>
-      </div>
-      <div className="nav-button">
-        <Link to="/client/" >Clientes</Link>
-      </div>
-      <div>
-        <input type="search" name="nav-search" className="nav-search" />
-      </div>
-      <div className="nav-button" id="navigation-select">
+      <div className="navigation-select">
         <select value={JSON.stringify(romaneio)} name="romaneios" onChange={handleChange}>
           {
             romaneios.map((e) => (
@@ -53,8 +78,7 @@ function NavBar() {
           }
         </select>
       </div>
-
-    </header>
+    </div>
   );
 }
 

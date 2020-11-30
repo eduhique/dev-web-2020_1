@@ -47,7 +47,7 @@ function NewClient({ onSubmit }) {
           <input type="text" id="client" name="client" placeholder="Supermercado de teste" onChange={handleChange} />
           </label>
           <label>
-            type:
+            Tipo:
             <select value={type} name="type" onChange={handleChange}>
               <option value="Varejo">Varejo</option>
               <option value="Atacado">Atacado</option>

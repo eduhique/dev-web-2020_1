@@ -1,4 +1,5 @@
 var Romaneio = require('../models/romaneio')
+var order_controller = require('../controllers/orderController')
 const utility = require('../models/utility')
 
 const romaneios = Romaneio.romaneios;
@@ -55,6 +56,7 @@ exports.romaneioDelete = function (req, res) {
   let indexOfRomaneio = utility.findIndexOf(romaneios, req.params.romaneioId);
   if (indexOfRomaneio > -1) {
     romaneios.splice(indexOfRomaneio, 1);
+    order_controller.orderDeleteRomanio(req.params.romaneioId);
     res.status(204).send();
   } else {
     utility.error(res, 404, `Id(${req.params.romaneioId}) passado não está presente na base.`);

@@ -13,11 +13,12 @@ const headers = {
 }
 
 
-function NewOrder(props) {
+function OrderEdit(props) {
   const history = useHistory()
+  const [id, setId] = useState(0);
+  const [romaneio, setRomaneio] = useState({});
   const [client, setClient] = useState({});
   const [items, setItems] = useState([]);
-  const [romaneioAtual, setRomaneioAtual] = useState({});
   const [loading, setLoading] = useState(false);
 
   function selectClient(client) {
@@ -39,15 +40,15 @@ function NewOrder(props) {
     if (client.id !== undefined && items.length > 0) {
       setLoading(true)
 
-      let submit = { romaneioId: romaneioAtual.id, clientId: client.id, items: [] };
+      let submit = { id, romaneioId: romaneio.id, clientId: client.id, items: [] };
       items.forEach(element => {
         submit.items.push({ productId: element.productId, quantity: element.quantity });
       });
 
-      await api.post('order/', submit, { headers: headers })
+      await api.put('order/', submit, { headers: headers })
         .then(response => {
           setLoading(false);
-          history.push(`/order/post/${romaneioAtual.id}`)
+          history.push(`/order/`)
         })
         .catch(response => alert(response.data));
 
@@ -61,14 +62,25 @@ function NewOrder(props) {
     }
   }
 
+  const deleteItem = async e => {
+    await api.delete(`order/${id}`)
+      .then(_ => { history.push(`/order/`) })
+      .catch(response => alert(response.data));
+  }
+
 
   useEffect(_ => {
-    async function getRomaneio() {
-      let response = await api.get(`romaneio/${props.match.params.romaneio}`);
-      setRomaneioAtual(response.data);
+    async function getOrder() {
+      let response = await api.get(`order/${props.match.params.order}`);
+      let orderResponse = response.data;
+      setId(orderResponse.id);
+      setRomaneio(orderResponse.romaneio);
+      setClient(orderResponse.client);
+      setItems(orderResponse.items);
     }
+
     setLoading(true);
-    getRomaneio()
+    getOrder()
     setLoading(false);
     document.getElementById('header-app').style.display = "none";
 
@@ -76,17 +88,18 @@ function NewOrder(props) {
       abort();
       document.getElementById('header-app').style.display = "grid";
     }
-  }, [props.match.params.romaneio])
+  }, [props.match.params.order])
 
   return (
     <div>
       {loading ? <Loading /> : <div>
         <div>
-          <h2>Criar Novo Pedido ({romaneioAtual.title})</h2>
+          <h2>Editar Pedido ({romaneio.title})</h2>
           <input type="button" value="Salvar" onClick={handleSubmit} />
+          <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o pedido?`)) deleteItem() }} value="Deletar" />
         </div>
         <br />
-        <OrderList items={items} />
+        <OrderList items={items} setItems={setItems} />
         <br />
         <hr />
         <hr />
@@ -98,7 +111,7 @@ function NewOrder(props) {
           <hr />
           <label>
             <h3>Cliente:</h3>
-            <SelectSearch onSelect={selectClient} placeholder="Escreva o nome do cliente" modelName="Clientes" inputProperty="name" searchFunction={searchClients} />
+            <SelectSearch onSelect={selectClient} placeholder="Escreva o nome do cliente" modelName="Clientes" inputProperty="name" searchFunction={searchClients} selectedProps={client.name} />
           </label>
           <label>
             <h3>Tipo:</h3><p>{client.type}</p>
@@ -110,4 +123,4 @@ function NewOrder(props) {
   );
 }
 
-export default NewOrder;
+export default OrderEdit;

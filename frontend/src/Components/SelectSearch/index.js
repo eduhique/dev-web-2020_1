@@ -4,13 +4,14 @@ import SelectSearchList from '../SelectSearchList';
 // import { Link } from 'react-router-dom';
 import './style.scss';
 
-function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchFunction, resetInput }) {
+function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchFunction, resetInput, selectedProps }) {
   const [filteredIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
   const [filteredList, setFilteredList] = useState([]);
   const [enabled, setEnabled] = useState(false);
   const [inside, setInside] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [startSelect, setStartSelect] = useState(true);
 
   let inputRef = useRef();
 
@@ -23,7 +24,7 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
   function onKeyPress(event) {
     if (event.key === 'Enter' && userInput && filteredList.length > 0) {
       const item = filteredList[filteredIndex];
-      selectItem(item)
+      selectItem(item);
       inputRef.current.blur();
       setEnabled(false)
     }
@@ -45,6 +46,7 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
   function selectItem(item) {
     onSelect(item);
     setUserInput(item[inputProperty]);
+    setStartSelect(true);
     setEnabled(false);
   }
 
@@ -63,8 +65,13 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
     }
     setLoading(false)
 
+    if (selectedProps !== undefined && selectedProps.trim() !== "" && startSelect) {
+      setUserInput(selectedProps);
+      setStartSelect(false);
+    }
+
     return _ => isSubscribed = false
-  }, [userInput, enabled, searchFunction, resetInput])
+  }, [userInput, enabled, searchFunction, resetInput, selectedProps, startSelect])
 
   return (
     <div>

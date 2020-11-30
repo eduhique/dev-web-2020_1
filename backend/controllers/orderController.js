@@ -87,3 +87,22 @@ exports.orderDelete = function (req, res) {
   }
   Order.writeOrders(orders);
 };
+
+exports.orderDeleteRomanio = (romaneioId) => {
+
+  while (findIndexOfOrder(orders, romaneioId) > -1) {
+    let i = findIndexOfOrder(orders, romaneioId);
+    orders.splice(i, 1);
+  }
+  Order.writeOrders(orders);
+};
+
+const findIndexOfOrder = (list, romaneioId) => {
+  return list.findIndex(obj => {
+    if ((obj.romaneioId !== undefined && !isNaN(obj.romaneioId)) && obj.romaneioId == romaneioId) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+}

@@ -1,3 +1,14 @@
 .client-title{
   text-align: center;
 }
+
+.actions {
+  display: grid;
+  justify-content: end;
+  padding-right: 2rem;
+  div{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+  }
+}

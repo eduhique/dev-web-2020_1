@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import ReportTotais from '../ReportTotais'
+import api from '../../services/Api';
 import './style.scss';
 
-function OrderItem({ order }) {
+function OrderItem({ order, onSubmit }) {
+  const history = useHistory();
+  const [id] = useState(order.id);
+
+  const editMode = _ => {
+    history.push(`/order/edit/${id}`)
+  }
+
+  const deleteItem = async e => {
+    await api.delete(`order/${id}`)
+      .then(_ => { onSubmit(true); })
+      .catch(response => alert(response.data));
+  }
   return (
     <div className="order">
       <div className="client-info">
-        <b>Cliente:</b> {order.client.name}
-        <b>Tipo:</b>{order.client.type}
+        <p><b>Cliente:</b> {order.client.name}</p>
+        <p><b>Tipo:</b>{order.client.type}</p>
+      </div>
+      <div className="actions-order">
+        <input type="submit" onClick={(e) => { if (window.confirm(`Editar pedido de ${order.client.name}`)) editMode() }} value="Editar" />
+        <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o pedido de ${order.client.name}?`)) deleteItem() }} value="Deletar" />
       </div>
       <br />
       <table>

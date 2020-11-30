@@ -6,7 +6,7 @@ import RomaneiosList from '../../Components/RomaneiosList';
 function Romaneios() {
   return (
     <div>
-      <div><h3>Romaneios</h3></div>
+      <div className="romaneio-title"><h3>Romaneios</h3></div>
       <NewRomaneio />
       <RomaneiosList />
     </div>

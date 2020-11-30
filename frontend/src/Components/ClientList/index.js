@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './style.scss'
 import ClientItem from '../ClientItem'
 
 
-function ClientsList({ clients, setLoading }) {
-  const [modeEdit, setModeEdit] = useState(false)
+function ClientsList({ clients, setLoading, setModeEdit, modeEdit }) {
 
   useEffect(_ => {
   }, [setModeEdit, modeEdit])
+
   return (
+
     <div className="client-list container">
-      {/* <div><h3>Todos os clientes</h3></div> */}
       {
         clients.map((element) => (
           <ClientItem

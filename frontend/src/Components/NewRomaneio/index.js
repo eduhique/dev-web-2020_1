@@ -21,7 +21,7 @@ function NewRomaneio() {
   var handleSubmit = async event => {
     event.preventDefault();
     setLoading(true)
-    await api.post('romaneio/', { title: title.trim(), date, dateAtual: getDataFormat(dateAtual) })
+    await api.post('romaneio/', { title: title !== undefined ? title.trim() : undefined, date, dateAtual: getDataFormat(dateAtual) })
       .then(response => setChange(!change))
       .catch(response => alert(response.data));
     setTitle("");
@@ -40,7 +40,7 @@ function NewRomaneio() {
   return (
     <div className="romaneio-form">
       {loading ? <Loading /> :
-        <form onSubmit={handleSubmit}>
+        <div className="romaneio-form">
           <label>
             Nome:
           <input type="text" name="romaneio" placeholder="Opcional" onChange={handleChange} />
@@ -49,10 +49,10 @@ function NewRomaneio() {
             data:
             <Calendar onChange={handleChangeData} dateFunction={getDataFormat} />
           </label>
-          <input type="submit" value="Cadastrar"></input>
-        </form>
+          <input type="button" value="Cadastrar" onClick={handleSubmit}></input>
+        </div>
       }
-    </div>
+    </div >
   );
 }
 

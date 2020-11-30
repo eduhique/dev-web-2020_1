@@ -1,0 +1,13 @@
+.product-item{
+  .product-name input{
+    min-width: 200px;
+  }
+  
+  .product-other{
+    .product-edit{
+      input{
+        margin: auto 0.1rem;
+      }
+    }
+  }
+}

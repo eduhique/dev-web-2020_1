@@ -3,24 +3,24 @@ import Loading from '../Loading'
 import api from '../../services/Api';
 import './style.scss';
 
-function ClientEdit({ onSubmit, cancelEdit, ...props }) {
+function ProductEdit({ onSubmit, cancelEdit, ...props }) {
   const [id] = useState(props.id);
   const [name, setName] = useState(props.name);
-  const [type, setType] = useState(props.type)
+  const [unit, setUnit] = useState(props.unit)
   const [button, setButton] = useState(props.name && props.id > 0 ? false : true);
   const [loading, setLoading] = useState(false);
 
   var handleSubmit = async event => {
     event.preventDefault();
     setLoading(true)
-    await api.put('client/', { id, name: name.trim(), type }, { headers: { 'Content-Type': 'application/json', 'accept': "*/*" } })
+    await api.put('product/', { id, name: name.trim(), unit }, { headers: { 'Content-Type': 'application/json', 'accept': "*/*" } })
       .then(_ => { onSubmit(true); })
       .catch(response => alert(response.data));
   }
 
   function handleChange(event) {
     let target = event.target;
-    if (target.name === 'client') {
+    if (target.name === 'product') {
       setName(target.value);
       if (target.value.trim() !== "") {
         setButton(false)
@@ -28,32 +28,33 @@ function ClientEdit({ onSubmit, cancelEdit, ...props }) {
         setButton(true)
       }
     }
-    if (target.name === 'type') {
-      setType(target.value);
+    if (target.name === 'unit') {
+      setUnit(target.value);
     }
   }
 
   const deleteItem = async e => {
     setLoading(true)
-    await api.delete(`client/${id}`)
+    await api.delete(`product/${id}`)
       .then(_ => { onSubmit(true); })
       .catch(response => alert(response.data));
   }
 
   return (
     <div>
-      {loading ? <Loading /> : <form onSubmit={handleSubmit} className="client-item">
-        <div className="client-name">
-          <input type="text" name="client" placeholder="Supermercado de teste" onChange={handleChange} value={name} />
+      {loading ? <Loading /> : <form onSubmit={handleSubmit} className="product-item">
+        <div className="product-name">
+          <input type="text" name="product" placeholder="Abacaxi" onChange={handleChange} value={name} />
         </div>
-        <div className="client-other">
+        <div className="product-other">
           <div className="container">
-            <select value={type} name="type" onChange={handleChange}>
-              <option value="Varejo">Varejo</option>
-              <option value="Atacado">Atacado</option>
+            <select value={unit} name="unit" onChange={handleChange}>
+              <option value="cx">Caixa</option>
+              <option value="kg">Quilo</option>
+              <option value="und">Unidade</option>
             </select>
           </div>
-          <div className="client-edit">
+          <div className="product-edit">
             <input type="submit" disabled={button} value="S" />
             <input type="button" value="C" onClick={cancelEdit} />
             <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar ${name}?`)) deleteItem(e) }} value="D" />
@@ -64,4 +65,4 @@ function ClientEdit({ onSubmit, cancelEdit, ...props }) {
   );
 }
 
-export default ClientEdit;
+export default ProductEdit;
