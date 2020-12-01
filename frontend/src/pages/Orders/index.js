@@ -36,18 +36,21 @@ function Orders() {
       }
     }
     async function getData() {
-      let response = await api.get(`order/romaneio/${romaneio.id}`);
-      let orderss = response.data;
-      orderss.sort(compare)
-      if (sort !== "NONE" && sort !== "Date/ASC") {
-        setOrders(orderss.sort(compare));
-      }
-      if (sort === "NONE") {
-        setOrders(orderss);
-      }
-      if (sort === "NONE") {
-        setOrders(orderss.reverse());
-      }
+      await api.get(`order/romaneio/${romaneio.id}`)
+        .then(response => {
+          let orderss = response.data;
+          orderss.sort(compare)
+          if (sort !== "NONE" && sort !== "Date/ASC") {
+            setOrders(orderss.sort(compare));
+          }
+          if (sort === "NONE") {
+            setOrders(orderss);
+          }
+          if (sort === "NONE") {
+            setOrders(orderss.reverse());
+          }
+        })
+        .catch(response => setOrders([]));;
     }
 
     setLoading(true);

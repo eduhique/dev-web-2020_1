@@ -24,10 +24,10 @@ function PostOrder(props) {
     setLoading(true);
     getRomaneios()
     setLoading(false);
-    document.getElementById('navigation-select').style.display = "none";
+    document.getElementById('header-app').style.display = "none";
 
     return _ => {
-      document.getElementById('navigation-select').style.display = "block";
+      document.getElementById('header-app').style.display = "grid";
     }
   }, [])
 

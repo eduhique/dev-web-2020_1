@@ -45,7 +45,7 @@ function ProductItem({ setMode, setLoading, onSubmit, ...props }) {
             </div>
             <div className={"product-edit"}>
               <ul>
-                <li><button disabled={modeEdit} onClick={editPropert}>Edit</button></li>
+                <li><button disabled={modeEdit} onClick={editPropert}>Editar</button></li>
               </ul>
             </div>
           </div>

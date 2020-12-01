@@ -46,7 +46,7 @@ function ClientItem({ setMode, setLoading, onSubmit, ...props }) {
             </div>
             <div className={"client-edit"}>
               <ul>
-                <li><button disabled={modeEdit} onClick={editPropert}>Edit</button></li>
+                <li><button disabled={modeEdit} onClick={editPropert}>Editar</button></li>
               </ul>
             </div>
           </div>

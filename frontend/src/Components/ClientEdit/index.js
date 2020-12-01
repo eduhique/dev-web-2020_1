@@ -54,9 +54,9 @@ function ClientEdit({ onSubmit, cancelEdit, ...props }) {
             </select>
           </div>
           <div className="client-edit">
-            <input type="submit" disabled={button} value="S" />
-            <input type="button" value="C" onClick={cancelEdit} />
-            <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar ${name}?`)) deleteItem(e) }} value="D" />
+            <input type="submit" disabled={button} value="Salvar" />
+            <input type="button" value="Cancelar" onClick={cancelEdit} />
+            <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar ${name}?`)) deleteItem(e) }} value="Deletar" />
           </div>
         </div>
       </form>}

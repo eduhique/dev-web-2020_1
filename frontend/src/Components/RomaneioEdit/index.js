@@ -19,7 +19,6 @@ function RomaneioEdit({ onSubmit, cancelEdit, ...props }) {
 
   var handleSubmit = async event => {
     event.preventDefault();
-    console.log(date)
     setLoading(true)
     await api.put('romaneio/', { id, title: title.trim(), date: date, dateAtual }, { headers: { 'Content-Type': 'application/json', 'accept': "*/*" } })
       .then(_ => { onSubmit(true); })
@@ -63,9 +62,9 @@ function RomaneioEdit({ onSubmit, cancelEdit, ...props }) {
             <Calendar onChange={handleChangeData} dateFunction={getDataFormat} dateProps={date} />
           </div>
           <div className="romaneio-edit">
-            <input type="button" disabled={button} value="S" onClick={handleSubmit} />
-            <input type="button" value="C" onClick={cancelEdit} />
-            <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o romaneio ${title}?`)) deleteItem(e) }} value="D" />
+            <input type="button" disabled={button} value="Salvar" onClick={handleSubmit} />
+            <input type="button" value="Cancelar" onClick={cancelEdit} />
+            <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o romaneio ${title}?`)) deleteItem(e) }} value="Deletar" />
           </div>
         </div>
       </div>}
