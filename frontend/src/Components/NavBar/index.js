@@ -42,19 +42,19 @@ function NavBar() {
     <div id="header-app">
       <div className="buttons-nav">
         <div>
-          <Link to="/" className="nav-button">Início</Link>
+          <Link to="/" className="button-default">Início</Link>
         </div>
         <div>
-          <Link to="/order/" className="nav-button">Pedidos</Link>
+          <Link to="/order/" className="button-default">Pedidos</Link>
         </div>
         <div>
-          <Link to="/romaneio/" className="nav-button">Romaneios</Link>
+          <Link to="/romaneio/" className="button-default">Romaneios</Link>
         </div>
         <div>
-          <Link to="/product/" className="nav-button">Produtos</Link>
+          <Link to="/product/" className="button-default">Produtos</Link>
         </div>
         <div>
-          <Link to="/client/" className="nav-button">Clientes</Link>
+          <Link to="/client/" className="button-default">Clientes</Link>
         </div>
       </div>
       <div className="nav-search">

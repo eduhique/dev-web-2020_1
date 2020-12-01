@@ -42,7 +42,7 @@ function OrderListItemEdit({ onSubmit, cancelEdit, modifyItem, searchProduct, de
   }, [productId, quantity, productAtual])
 
   return (
-    <div className="product-item">
+    <div className="order-item">
       <div className="order-name">
         <SelectSearch onSelect={onSelect} placeholder="Insira um Produto" modelName="Produtos" inputProperty="name" searchFunction={searchProduct} selectedProps={productAtual.name} />
       </div>
@@ -52,10 +52,10 @@ function OrderListItemEdit({ onSubmit, cancelEdit, modifyItem, searchProduct, de
       <div className="order-unit">
         <p>{productAtual.unit}</p>
       </div>
-      <div className="product-edit">
-        <input type="submit" disabled={button} value="S" onClick={handleSubmit} />
-        <input type="button" value="C" onClick={cancelEdit} />
-        <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o item ${productAtual.name}?`)) deleteItem(productId) }} value="D" />
+      <div className="order-edit">
+        <input type="submit" disabled={button} value="Salvar" onClick={handleSubmit} />
+        <input type="button" value="Cancelar" onClick={cancelEdit} />
+        <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o item ${productAtual.name}?`)) deleteItem(productId) }} value="Deletar" />
       </div>
     </div>
   );

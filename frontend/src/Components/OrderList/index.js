@@ -36,7 +36,7 @@ function OrderList({ items, setItems }) {
   }, [setModeEdit, modeEdit])
 
   return (
-    <div className="list-newOrder">
+    <div className="list-order">
       <div className="list-order-header">
         <h3>Produto</h3>
         <h3>Quantidade</h3>

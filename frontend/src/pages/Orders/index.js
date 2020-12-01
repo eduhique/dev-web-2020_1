@@ -62,11 +62,11 @@ function Orders() {
     <div>
       {loading ? <Loading /> :
         <div className="orders">
-          <div className="romaneio-title"><h2>{romaneio.title}</h2></div>
-          <div className="romaneio-data"><h2>{getDataFormat(romaneio.date)}</h2></div>
+          <div className="title"><h2>{romaneio.title}</h2></div>
+          <div className="data"><h2>({getDataFormat(romaneio.date)})</h2></div>
           <div className="actions container">
-            <div><p><Link to={`/report/${romaneio.id}`} >Relatório</Link></p></div>
-            <div><p><Link to={`/order/new/${romaneio.id}`} >Novo Pedido</Link></p></div>
+            <div><p className="button-default"><Link to={`/report/${romaneio.id}`} >Relatório</Link></p></div>
+            <div><p className="button-default"><Link to={`/order/new/${romaneio.id}`} >Novo Pedido</Link></p></div>
             <div>
               <p>Ordenar por:</p>
               <select value={sort} name="type" onChange={event => setSort(event.target.value)}>

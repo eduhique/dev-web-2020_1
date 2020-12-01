@@ -18,17 +18,18 @@ function OrderItem({ order, onSubmit }) {
       .catch(response => alert(response.data));
   }
   return (
-    <div className="order">
-      <div className="client-info">
-        <p><b>Cliente:</b> {order.client.name}</p>
-        <p><b>Tipo:</b>{order.client.type}</p>
+    <div className="order-client">
+      <div className="client-header">
+        <div className="client-info">
+          <p><b>Cliente:</b> {order.client.name}</p>
+          <p><b>Tipo:</b>{order.client.type}</p>
+        </div>
+        <div className="actions-order">
+          <input className="button-default" type="submit" onClick={(e) => { if (window.confirm(`Editar pedido de ${order.client.name}`)) editMode() }} value="Editar" />
+          <input className="button-default red" type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o pedido de ${order.client.name}?`)) deleteItem() }} value="Deletar" />
+        </div>
       </div>
-      <div className="actions-order">
-        <input type="submit" onClick={(e) => { if (window.confirm(`Editar pedido de ${order.client.name}`)) editMode() }} value="Editar" />
-        <input type="button" onClick={(e) => { if (window.confirm(`Deseja realmente deletar o pedido de ${order.client.name}?`)) deleteItem() }} value="Deletar" />
-      </div>
-      <br />
-      <table>
+      <table className="list-client-order">
         <tbody>
           <tr>
             <th>Produto</th>
@@ -44,7 +45,6 @@ function OrderItem({ order, onSubmit }) {
       </table>
       <ReportTotais subCaixas={order.subCaixas} subQuilos={order.subQuilos} subUnits={order.subUnits} />
       <hr />
-      <br />
     </div>
   );
 }

@@ -60,11 +60,14 @@ function NewOrderItem({ items, setItems, productProps }) {
   }, [productId, quantity, productAtual])
 
   return (
-    <div className="">
+    <div className="order-product-new">
       <SelectSearch onSelect={selectProduct} placeholder="Insira um Produto" modelName="Produtos" inputProperty="name" searchFunction={searchProduct} resetInput={resetInput} />
-      <input type="number" className="qtd" name="qtd" inputMode="decimal" step={step} min="0" value={quantity} onChange={handleChange} />
+      <label htmlFor="qtd" className="qtd-label">
+        <h4>Quantidade:</h4>
+        <input type="number" className="qtd" name="qtd" inputMode="decimal" step={step} min="0" value={quantity} onChange={handleChange} />
+      </label>
       <p>{productAtual.unit}</p>
-      <input type="button" value="adicionar" disabled={disableButton} onClick={addItem} />
+      <input className="button-default" type="button" value="adicionar" disabled={disableButton} onClick={addItem} />
     </div>
   );
 }

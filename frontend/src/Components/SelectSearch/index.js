@@ -79,7 +79,7 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
       <div>
         <input
           type="text"
-          className="search-order"
+          className={enabled ? "suggestions-input" : "select-input"}
           placeholder={placeholder}
           ref={inputRef}
           onChange={handleChange}
@@ -89,7 +89,7 @@ function SelectSearch({ onSelect, placeholder, modelName, inputProperty, searchF
           value={userInput}
           autoComplete='off'
         />
-        <input type="button" value={modelName} onClick={_ => setEnabled(!enabled)} />
+        <input className="button-select" type="button" value={modelName} onClick={_ => setEnabled(!enabled)} />
       </div>
     </div>
   );

@@ -1,0 +1,20 @@
+.dashboard{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  ul{
+    list-style-type: none;
+
+    li{
+      margin-top: 1rem;
+      width: 400px;
+      text-align: center;
+    }
+  }
+
+  .button-default a {
+    text-decoration: none;
+    color: white;
+  }
+  
+}

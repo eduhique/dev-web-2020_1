@@ -1,8 +1,41 @@
-// option[value] {
-//   display: none;
-// }
+.order-new{
+  display: grid;
+  grid-template-rows: auto auto 31.25rem 5fr;
+  margin: auto;
+  max-width: 1200px;
+  .title{
+    display: flex;
+    justify-content: center;
+  
+    margin: 1rem 10rem;
+  }
+  
+  .actions {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-#search-order{
-  width: 250px;
+  .product-order{
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+
+    .label-order{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      justify-content: start;
+      align-items: center;
+      gap: 3rem;
+
+      .client-order-info{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+  }
 
 }

@@ -23,13 +23,13 @@ function SelectSearchList({ list, onSelect, visible, listen, inputProperty }) {
 
   return (
     <div ref={divRef}>
-      <ul id="suggestions-select">
+      {visible ? <ul id="suggestions-select">
         {
           visible ? filteredList.map((element) => (
             <li key={element.id} onClick={_ => onSelect(element)}>{element[inputProperty]}</li>
           )) : null
         }
-      </ul>
+      </ul> : null}
     </div>
   );
 }

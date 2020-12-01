@@ -40,7 +40,7 @@ function ReportProduct(props) {
       setReportProduct(reports);
     }
     getData();
-  }, [setReportProduct, props.location.search, sort, romaneio])
+  }, [setReportProduct, props.location.search, sort, romaneio, history, reportProduct])
 
   return (
     <div>

@@ -1,3 +1,24 @@
 .qtd:invalid {
   color: red;
 }
+
+.order-product-new{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 2rem;
+
+  .qtd-label{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+
+    .qtd{
+      max-width: 4rem;
+      padding: 0.3rem;
+      border-radius: 10px;
+      margin: 0 0.5rem 0.25rem 0rem;
+      border: 1px solid #cccccc;
+      text-align: center;
+    }
+  }
+}

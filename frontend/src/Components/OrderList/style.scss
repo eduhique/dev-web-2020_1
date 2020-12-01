@@ -1,8 +1,17 @@
-// option[value] {
-//   display: none;
-// }
+.list-order{
+  display: grid;
+  grid-template-rows: auto auto 30rem;
 
-#search-order{
-  width: 250px;
 
+  .list-order-header{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+
+  }
+
+  .list-order-body{
+    display: flex;
+    flex-direction: column;
+  }
 }

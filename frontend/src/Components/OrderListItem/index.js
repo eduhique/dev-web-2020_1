@@ -56,7 +56,7 @@ function OrderListItem({ setMode, onSubmit, searchFunction, modifyItem, deleteIt
             <p>{unit}</p>
           </div>
           <div className={"order-edit"}>
-            <button disabled={modeEdit} onClick={editPropert}>Edit</button>
+            <button disabled={modeEdit} onClick={editPropert}>Editar</button>
           </div>
         </div >
       }

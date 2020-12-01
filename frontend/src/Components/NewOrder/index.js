@@ -80,31 +80,28 @@ function NewOrder(props) {
 
   return (
     <div>
-      {loading ? <Loading /> : <div>
-        <div>
+      {loading ? <Loading /> : <div className="order-new">
+        <div className="title">
           <h2>Criar Novo Pedido ({romaneioAtual.title})</h2>
-          <input type="button" value="Salvar" onClick={handleSubmit} />
         </div>
-        <br />
+        <div className="actions">
+          <input className="button-default green" type="button" value="Salvar" onClick={handleSubmit} />
+          <input className="button-default" type="button" onClick={(e) => { history.push(`/order/`) }} value="Cancelar" />
+        </div>
         <OrderList items={items} />
-        <br />
-        <hr />
-        <hr />
-        <div>
-          <label>
+        <div className="product-order">
+          <label className="label-order">
             <h3>Produto:</h3>
             <NewOrderItem items={items} setItems={setItems} productProps={{}} />
           </label>
-          <hr />
-          <label>
+          <label className="label-order">
             <h3>Cliente:</h3>
             <SelectSearch onSelect={selectClient} placeholder="Escreva o nome do cliente" modelName="Clientes" inputProperty="name" searchFunction={searchClients} />
-          </label>
-          <label>
-            <h3>Tipo:</h3><p>{client.type}</p>
+            <div className="client-order-info">
+              <h3>Tipo:</h3><p>{client.type}</p>
+            </div>
           </label>
         </div>
-        <hr />
       </div>}
     </div>
   );

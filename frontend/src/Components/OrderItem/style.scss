@@ -1,0 +1,16 @@
+.order-client{
+  margin: 1rem 0.25rem;
+  display: grid;
+  grid-template-rows: auto auto auto;
+
+  .list-client-order{
+    margin: 0 auto;
+  }
+
+  .report-sub{
+    margin: 2rem 0.25rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+  }
+}

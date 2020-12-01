@@ -1,11 +1,29 @@
+.orders{
+  display: grid;
+  grid-template-rows: auto auto auto;
+  margin: auto;
+  max-width: 1200px;
+  .title, .data{
+    display: flex;
+    justify-content: center;
+  
+    margin: 0.3rem 10rem 0rem 10rem;
+  }
+}
 .actions {
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: end;
-  padding: 0.5re;
+  padding: 1rem;
+  align-items: center;
   div{
     display: grid;
     grid-template-columns: auto auto;
     gap: 0.5rem;
+
+    .button-default a {
+      text-decoration: none;
+      color: white;
+    }
   }
 }
